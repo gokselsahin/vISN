@@ -1,0 +1,4 @@
+Date: 15.04.2019	Time: 11.57.04	Info: Test Baþladý.
+Date: 15.04.2019	Time: 11.57.04	Info: sýcaklýk ayarlanýyor.
+Date: 15.04.2019	Time: 12.15.25	Info: sýcaklýk kontrol aktif.
+Date: 15.04.2019	Time: 12.15.25	Info: sýcaklýk ayarlama yapýldý.
