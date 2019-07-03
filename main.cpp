@@ -11,8 +11,8 @@ int main(int argc, char *argv[])
   //  QRect r1(0,40,800,600);
   //  w.setGeometry(r1);
 
-  //  w.show();
-    w.showFullScreen();
+    w.show();
+  // w.showFullScreen();
 
    // w.showNormal();
     return a.exec();

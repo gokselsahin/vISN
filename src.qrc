@@ -18,5 +18,7 @@
         <file>img/alarm.png</file>
         <file>img/qt3.PNG</file>
         <file>img/qt4.PNG</file>
+        <file>img/light-bulb-OFF-128x128tr.png</file>
+        <file>img/light-bulb-ON-128x128tr.png</file>
     </qresource>
 </RCC>

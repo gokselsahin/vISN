@@ -262,7 +262,7 @@ void MainWindow::commInfo(bool status)
     else
     {
 
-        ui->tabWidget->setCurrentIndex(1);
+   /*     ui->tabWidget->setCurrentIndex(1);
         ui->detailsPages->setCurrentIndex(0);
         ui->detailsBottomPages->setCurrentIndex(4);
         ui->bResetFault->setVisible(true);
@@ -270,6 +270,7 @@ void MainWindow::commInfo(bool status)
         proc->stop();
         proc->commandMessages.clear();
         proc->profileMessages.clear();
+        */
         commStatus = false;
 
     }
@@ -6409,16 +6410,20 @@ void MainWindow::on_bLightsMain_clicked()                                   //  
 {
     if (ui->bLightsMain->isChecked())
     {
+
         QByteArray cantTouchThis;
         cantTouchThis.clear();
         cantTouchThis.append(0x01);
         proc->insertCommandMessage(mySerial::makeMessage(0x9C,cantTouchThis));
+        ui->bLightsMain->setCheckable(true);
+
     }
     else
     {
         QByteArray cantTouchThis;
         cantTouchThis.clear();
         cantTouchThis.append(char(0x00));
+
         proc->insertCommandMessage(mySerial::makeMessage(0x9C,cantTouchThis));
     }
 }
@@ -7308,6 +7313,7 @@ void MainWindow::on_bMainDoorInfo_clicked()
 {
 
 }
+
 void MainWindow::degree_control()
 {
     if(ui->leTempInput_0->text().toDouble() > 120)
@@ -7317,20 +7323,13 @@ void MainWindow::degree_control()
                     tr(appName),
                     tr("120 dereceden fazla sicaklik girilemez") );
         ui->leTempInput_0->setText("0");
-
-
-
     }  if(ui->leTempInput_1->text().toDouble() > 120)
     {
-
         QMessageBox::information(
                     this,
                     tr(appName),
                     tr("120 dereceden fazla sicaklik girilemez") );
         ui->leTempInput_1->setText("0");
-
-
-
     }   if(ui->leTempInput_2->text().toDouble() > 120)
     {
 
@@ -7339,9 +7338,6 @@ void MainWindow::degree_control()
                     tr(appName),
                     tr("120 dereceden fazla sicaklik girilemez") );
         ui->leTempInput_2->setText("0");
-
-
-
     } if(ui->leTempInput_3->text().toDouble() > 120)
     {
         QMessageBox::information(
@@ -7349,9 +7345,6 @@ void MainWindow::degree_control()
                     tr(appName),
                     tr("120 dereceden fazla sicaklikk girilemez") );
         ui->leTempInput_3->setText("0");
-
-
-
 
     }  else if(ui->leTempInput_4->text().toDouble() > 120)
     {
@@ -7361,9 +7354,6 @@ void MainWindow::degree_control()
                     tr("120 dereceden fazla sicaklik girilemez.") );
         ui->leTempInput_4->setText("0");
 
-
-
-
     }  if(ui->leTempInput_5->text().toDouble() > 120)
     {
         QMessageBox::information(
@@ -7371,9 +7361,6 @@ void MainWindow::degree_control()
                     tr(appName),
                     tr("120 dereceden fazla sicaklik girilemez") );
         ui->leTempInput_5->setText("0");
-
-
-
 
     }   if(ui->leTempInput_6->text().toDouble() > 120)
     {
@@ -7383,9 +7370,6 @@ void MainWindow::degree_control()
                     tr("120 dereceden fazla sicaklik girilemez.") );
         ui->leTempInput_6->setText("0");
 
-
-
-
     }   if(ui->leTempInput_7->text().toDouble() > 120)
     {
         QMessageBox::information(
@@ -7393,10 +7377,6 @@ void MainWindow::degree_control()
                     tr(appName),
                     tr("120 dereceden fazla sicaklik girilemez") );
         ui->leTempInput_7->setText("0");
-
-
-
-
     }   if(ui->leTempInput_8->text().toDouble() > 120)
     {
         QMessageBox::information(
@@ -7404,9 +7384,6 @@ void MainWindow::degree_control()
                     tr(appName),
                     tr("120 dereceden fazla sicaklik girilemez") );
         ui->leTempInput_8->setText("0");
-
-
-
     }   if(ui->leTempInput_9->text().toDouble() > 120)
     {
         QMessageBox::information(
@@ -7414,10 +7391,6 @@ void MainWindow::degree_control()
                     tr(appName),
                     tr("120 dereceden fazla sicaklik girilemez") );
         ui->leTempInput_9->setText("0");
-
-
-
-
     }   if(ui->leTempInput_10->text().toDouble() >= 120)
     {
         QMessageBox::information(
@@ -7425,10 +7398,6 @@ void MainWindow::degree_control()
                     tr(appName),
                     tr("120 dereceden fazla sicaklik girilemez") );
         ui->leTempInput_10->setText("120");
-
-
-
-
     }  if(ui->leTempInput_11->text().toDouble() > 120)
     {
         QMessageBox::information(
@@ -7436,10 +7405,6 @@ void MainWindow::degree_control()
                     tr(appName),
                     tr("120 dereceden fazla sicaklik girilemez") );
         ui->leTempInput_11->setText("0");
-
-
-
-
     }   if(ui->leTempInput_12->text().toDouble() > 120)
     {
         QMessageBox::information(
@@ -7447,9 +7412,6 @@ void MainWindow::degree_control()
                     tr(appName),
                     tr("120 dereceden fazla sicaklik girilemez") );
         ui->leTempInput_12->setText("0");
-
-
-
 
     }   if(ui->leTempInput_13->text().toDouble() > 120)
     {
@@ -7459,9 +7421,6 @@ void MainWindow::degree_control()
                     tr("120 dereceden fazla sicaklik girilemez.") );
         ui->leTempInput_13->setText("0");
 
-
-
-
     }   if(ui->leTempInput_14->text().toDouble() > 120)
     {
         QMessageBox::information(
@@ -7469,11 +7428,6 @@ void MainWindow::degree_control()
                     tr(appName),
                     tr("120 dereceden fazla sicaklik girilemez") );
         ui->leTempInput_14->setText("0");
-
-
-
-
-
     }
 }
 void MainWindow::humidty_control()

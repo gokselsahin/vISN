@@ -277,6 +277,7 @@ public:
     QLabel *laFault11;
     QLabel *laFault11_2;
     QLabel *laFault12;
+    QLabel *laFault11_3;
     QWidget *humidtyFault;
     QLabel *laFault51;
     QLabel *laFault52;
@@ -1177,6 +1178,11 @@ public:
 "fx: 0.4, fy: -0.1,\n"
 "radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
 "}*/"));
+        QIcon icon;
+        icon.addFile(QStringLiteral("img/light-bulb-OFF-128x128tr.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral("img/light-bulb-ON-128x128tr.png"), QSize(), QIcon::Active, QIcon::On);
+        bLightsMain->setIcon(icon);
+        bLightsMain->setIconSize(QSize(70, 70));
         bLightsMain->setCheckable(true);
         laDate = new QLabel(tab_Main);
         laDate->setObjectName(QStringLiteral("laDate"));
@@ -2144,7 +2150,7 @@ public:
         tab_setTemp->setObjectName(QStringLiteral("tab_setTemp"));
         detailsPages = new QStackedWidget(tab_setTemp);
         detailsPages->setObjectName(QStringLiteral("detailsPages"));
-        detailsPages->setGeometry(QRect(20, 60, 1141, 641));
+        detailsPages->setGeometry(QRect(-10, 60, 1141, 641));
         detailsPages->setStyleSheet(QLatin1String("QStackedWidget{\n"
 "background: qradialgradient(cx: 0.7, cy: -0.4,\n"
 "fx: 0.7, fy: -0.4,\n"
@@ -3865,42 +3871,42 @@ public:
         detailsBottomPipes->setObjectName(QStringLiteral("detailsBottomPipes"));
         laFault25 = new QLabel(detailsBottomPipes);
         laFault25->setObjectName(QStringLiteral("laFault25"));
-        laFault25->setGeometry(QRect(200, 320, 721, 61));
+        laFault25->setGeometry(QRect(200, 340, 721, 61));
         laFault25->setFont(font9);
         laFault25->setStyleSheet(QLatin1String("background-color: rgb(255, 0, 0);\n"
 "font: 75 18pt \"Arial\";"));
         laFault25->setAlignment(Qt::AlignCenter);
         laFault23 = new QLabel(detailsBottomPipes);
         laFault23->setObjectName(QStringLiteral("laFault23"));
-        laFault23->setGeometry(QRect(200, 310, 721, 71));
+        laFault23->setGeometry(QRect(200, 350, 721, 71));
         laFault23->setFont(font9);
         laFault23->setStyleSheet(QLatin1String("background-color: rgb(255, 0, 0);\n"
 "font: 75 18pt \"Arial\";"));
         laFault23->setAlignment(Qt::AlignCenter);
         laFault24 = new QLabel(detailsBottomPipes);
         laFault24->setObjectName(QStringLiteral("laFault24"));
-        laFault24->setGeometry(QRect(200, 310, 721, 71));
+        laFault24->setGeometry(QRect(200, 380, 721, 71));
         laFault24->setFont(font9);
         laFault24->setStyleSheet(QLatin1String("background-color: rgb(255, 0, 0);\n"
 "font: 75 18pt \"Arial\";"));
         laFault24->setAlignment(Qt::AlignCenter);
         laFault22 = new QLabel(detailsBottomPipes);
         laFault22->setObjectName(QStringLiteral("laFault22"));
-        laFault22->setGeometry(QRect(200, 310, 721, 71));
+        laFault22->setGeometry(QRect(200, 340, 721, 71));
         laFault22->setFont(font9);
         laFault22->setStyleSheet(QLatin1String("background-color: rgb(255, 0, 0);\n"
 "font: 75 18pt \"Arial\";"));
         laFault22->setAlignment(Qt::AlignCenter);
         laFault21 = new QLabel(detailsBottomPipes);
         laFault21->setObjectName(QStringLiteral("laFault21"));
-        laFault21->setGeometry(QRect(190, 310, 721, 71));
+        laFault21->setGeometry(QRect(190, 340, 721, 71));
         laFault21->setFont(font9);
         laFault21->setStyleSheet(QLatin1String("background-color: rgb(255, 0, 0);\n"
 "font: 75 18pt \"Arial\";"));
         laFault21->setAlignment(Qt::AlignCenter);
         laFault4A_2 = new QLabel(detailsBottomPipes);
         laFault4A_2->setObjectName(QStringLiteral("laFault4A_2"));
-        laFault4A_2->setGeometry(QRect(190, 230, 731, 71));
+        laFault4A_2->setGeometry(QRect(190, 240, 731, 71));
         QFont font10;
         font10.setFamily(QStringLiteral("Arial Black"));
         font10.setPointSize(22);
@@ -3919,7 +3925,7 @@ public:
         laFault4A_2->setAlignment(Qt::AlignCenter);
         groupBox_6 = new QGroupBox(detailsBottomPipes);
         groupBox_6->setObjectName(QStringLiteral("groupBox_6"));
-        groupBox_6->setGeometry(QRect(80, 40, 1011, 181));
+        groupBox_6->setGeometry(QRect(40, 50, 1011, 181));
         groupBox_6->setFont(font3);
         groupBox_6->setStyleSheet(QLatin1String("\n"
 "\n"
@@ -3948,9 +3954,9 @@ public:
         Hortum1_2->setObjectName(QStringLiteral("Hortum1_2"));
         Hortum1_2->setEnabled(true);
         Hortum1_2->setGeometry(QRect(10, 80, 61, 71));
-        QIcon icon;
-        icon.addFile(QStringLiteral(":/images/img/chechbox_Pipe_checked.png"), QSize(), QIcon::Normal, QIcon::On);
-        Hortum1_2->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/images/img/chechbox_Pipe_checked.png"), QSize(), QIcon::Normal, QIcon::On);
+        Hortum1_2->setIcon(icon1);
         Hortum1_2->setIconSize(QSize(64, 64));
         Hortum1_2->setCheckable(true);
         Hortum1_2->setChecked(true);
@@ -4098,7 +4104,7 @@ public:
         laFault49->setAlignment(Qt::AlignCenter);
         laFault47 = new QLabel(detailsBottomError);
         laFault47->setObjectName(QStringLiteral("laFault47"));
-        laFault47->setGeometry(QRect(200, 230, 721, 81));
+        laFault47->setGeometry(QRect(200, 170, 721, 81));
         laFault47->setFont(font10);
         laFault47->setStyleSheet(QLatin1String("background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                stop: 0  rgb(125, 85, 0), stop: 0.4  rgb(255,100, 0),\n"
@@ -4111,7 +4117,7 @@ public:
         laFault47->setAlignment(Qt::AlignCenter);
         laFault45 = new QLabel(detailsBottomError);
         laFault45->setObjectName(QStringLiteral("laFault45"));
-        laFault45->setGeometry(QRect(200, 230, 721, 81));
+        laFault45->setGeometry(QRect(200, 170, 721, 81));
         laFault45->setFont(font10);
         laFault45->setStyleSheet(QLatin1String("background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                stop: 0  rgb(125, 85, 0), stop: 0.4  rgb(255,100, 0),\n"
@@ -4124,7 +4130,7 @@ public:
         laFault45->setAlignment(Qt::AlignCenter);
         laFault48 = new QLabel(detailsBottomError);
         laFault48->setObjectName(QStringLiteral("laFault48"));
-        laFault48->setGeometry(QRect(200, 230, 721, 81));
+        laFault48->setGeometry(QRect(200, 160, 721, 81));
         laFault48->setFont(font10);
         laFault48->setStyleSheet(QLatin1String("background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                stop: 0  rgb(125, 85, 0), stop: 0.4  rgb(255,100, 0),\n"
@@ -4137,7 +4143,7 @@ public:
         laFault48->setAlignment(Qt::AlignCenter);
         laFault4A = new QLabel(detailsBottomError);
         laFault4A->setObjectName(QStringLiteral("laFault4A"));
-        laFault4A->setGeometry(QRect(200, 230, 721, 81));
+        laFault4A->setGeometry(QRect(200, 150, 721, 81));
         laFault4A->setFont(font10);
         laFault4A->setStyleSheet(QLatin1String("background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                stop: 0  rgb(125, 85, 0), stop: 0.4  rgb(255,100, 0),\n"
@@ -4184,13 +4190,26 @@ public:
         laFault12 = new QLabel(detailsBottomEmergency);
         laFault12->setObjectName(QStringLiteral("laFault12"));
         laFault12->setEnabled(true);
-        laFault12->setGeometry(QRect(380, 240, 521, 71));
+        laFault12->setGeometry(QRect(380, 240, 511, 71));
         laFault12->setFont(font11);
         laFault12->setStyleSheet(QLatin1String("font: 87 18pt \"Arial Black\";\n"
 "background-color: rgb(255, 0, 0);"));
         laFault12->setTextFormat(Qt::AutoText);
         laFault12->setAlignment(Qt::AlignCenter);
+        laFault11_3 = new QLabel(detailsBottomEmergency);
+        laFault11_3->setObjectName(QStringLiteral("laFault11_3"));
+        laFault11_3->setGeometry(QRect(380, 240, 521, 71));
+        laFault11_3->setFont(font11);
+        laFault11_3->setStyleSheet(QLatin1String("background-color: rgb(255, 0, 0);\n"
+"\n"
+"font: 87 18pt \"Arial Black\";\n"
+"color: rgb(255, 255, 255);"));
+        laFault11_3->setAlignment(Qt::AlignCenter);
         detailsBottomPages->addWidget(detailsBottomEmergency);
+        laFault11_2->raise();
+        laFault12->raise();
+        laFault11->raise();
+        laFault11_3->raise();
         humidtyFault = new QWidget();
         humidtyFault->setObjectName(QStringLiteral("humidtyFault"));
         laFault51 = new QLabel(humidtyFault);
@@ -4317,16 +4336,16 @@ public:
         btnDetailsInfo = new QPushButton(detailsMain);
         btnDetailsInfo->setObjectName(QStringLiteral("btnDetailsInfo"));
         btnDetailsInfo->setGeometry(QRect(250, 540, 94, 61));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/images/img/button_info.png"), QSize(), QIcon::Normal, QIcon::Off);
-        btnDetailsInfo->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/images/img/button_info.png"), QSize(), QIcon::Normal, QIcon::Off);
+        btnDetailsInfo->setIcon(icon2);
         btnDetailsInfo->setIconSize(QSize(94, 61));
         btnDetailsHeater = new QPushButton(detailsMain);
         btnDetailsHeater->setObjectName(QStringLiteral("btnDetailsHeater"));
         btnDetailsHeater->setGeometry(QRect(550, 540, 94, 61));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral(":/images/img/heater_on.png"), QSize(), QIcon::Normal, QIcon::On);
-        btnDetailsHeater->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/images/img/heater_on.png"), QSize(), QIcon::Normal, QIcon::On);
+        btnDetailsHeater->setIcon(icon3);
         btnDetailsHeater->setIconSize(QSize(94, 61));
         dsbCabinTopTemp_2 = new QDoubleSpinBox(detailsMain);
         dsbCabinTopTemp_2->setObjectName(QStringLiteral("dsbCabinTopTemp_2"));
@@ -4468,39 +4487,39 @@ public:
         btnDetailsPressure = new QPushButton(detailsMain);
         btnDetailsPressure->setObjectName(QStringLiteral("btnDetailsPressure"));
         btnDetailsPressure->setGeometry(QRect(650, 540, 94, 61));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral(":/images/img/alarm.png"), QSize(), QIcon::Normal, QIcon::Off);
-        btnDetailsPressure->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/images/img/alarm.png"), QSize(), QIcon::Normal, QIcon::Off);
+        btnDetailsPressure->setIcon(icon4);
         btnDetailsPressure->setIconSize(QSize(90, 55));
         btnIsnHumidty = new QPushButton(detailsMain);
         btnIsnHumidty->setObjectName(QStringLiteral("btnIsnHumidty"));
         btnIsnHumidty->setGeometry(QRect(450, 540, 94, 61));
         btnIsnHumidty->setStyleSheet(QStringLiteral(""));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral("img/cold.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        btnIsnHumidty->setIcon(icon4);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral("img/cold.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        btnIsnHumidty->setIcon(icon5);
         btnIsnHumidty->setIconSize(QSize(94, 61));
         btnDetailsTanklevel = new QPushButton(detailsMain);
         btnDetailsTanklevel->setObjectName(QStringLiteral("btnDetailsTanklevel"));
         btnDetailsTanklevel->setGeometry(QRect(10, 581, 94, 20));
-        QIcon icon5;
-        icon5.addFile(QStringLiteral(":/images/img/tankLevel_OK.png"), QSize(), QIcon::Normal, QIcon::On);
-        btnDetailsTanklevel->setIcon(icon5);
+        QIcon icon6;
+        icon6.addFile(QStringLiteral(":/images/img/tankLevel_OK.png"), QSize(), QIcon::Normal, QIcon::On);
+        btnDetailsTanklevel->setIcon(icon6);
         btnDetailsTanklevel->setIconSize(QSize(94, 61));
         btnDetailsPipes = new QPushButton(detailsMain);
         btnDetailsPipes->setObjectName(QStringLiteral("btnDetailsPipes"));
         btnDetailsPipes->setGeometry(QRect(110, 580, 94, 21));
-        QIcon icon6;
-        icon6.addFile(QStringLiteral(":/images/img/chechbox_Pipe_checked.png"), QSize(), QIcon::Normal, QIcon::Off);
-        btnDetailsPipes->setIcon(icon6);
+        QIcon icon7;
+        icon7.addFile(QStringLiteral(":/images/img/chechbox_Pipe_checked.png"), QSize(), QIcon::Normal, QIcon::Off);
+        btnDetailsPipes->setIcon(icon7);
         btnDetailsPipes->setIconSize(QSize(104, 41));
         btnIsnHumidty_2 = new QPushButton(detailsMain);
         btnIsnHumidty_2->setObjectName(QStringLiteral("btnIsnHumidty_2"));
         btnIsnHumidty_2->setGeometry(QRect(350, 540, 94, 61));
         btnIsnHumidty_2->setStyleSheet(QStringLiteral(""));
-        QIcon icon7;
-        icon7.addFile(QStringLiteral("img/nem.png"), QSize(), QIcon::Normal, QIcon::Off);
-        btnIsnHumidty_2->setIcon(icon7);
+        QIcon icon8;
+        icon8.addFile(QStringLiteral("img/nem.png"), QSize(), QIcon::Normal, QIcon::Off);
+        btnIsnHumidty_2->setIcon(icon8);
         btnIsnHumidty_2->setIconSize(QSize(94, 61));
         dsbSetHumidty = new QDoubleSpinBox(detailsMain);
         dsbSetHumidty->setObjectName(QStringLiteral("dsbSetHumidty"));
@@ -6047,7 +6066,7 @@ public:
         Hortum1->setObjectName(QStringLiteral("Hortum1"));
         Hortum1->setEnabled(true);
         Hortum1->setGeometry(QRect(10, 80, 61, 71));
-        Hortum1->setIcon(icon);
+        Hortum1->setIcon(icon1);
         Hortum1->setIconSize(QSize(64, 64));
         Hortum1->setCheckable(true);
         Hortum1->setChecked(true);
@@ -7703,11 +7722,11 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
         mainPage->setCurrentIndex(0);
         cbFixMode->setCurrentIndex(0);
         detailsPages->setCurrentIndex(0);
-        detailsBottomPages->setCurrentIndex(5);
+        detailsBottomPages->setCurrentIndex(4);
         sW_0->setCurrentIndex(1);
         stackedWidget_2->setCurrentIndex(0);
         cbSelectGraph->setCurrentIndex(0);
@@ -7731,7 +7750,7 @@ public:
         rectFix->setText(QString());
         rect1500h->setText(QString());
         bClearLogTable_2->setText(QApplication::translate("MainWindow", "_", Q_NULLPTR));
-        bLightsMain->setText(QApplication::translate("MainWindow", "Ayd\304\261nlatma", Q_NULLPTR));
+        bLightsMain->setText(QString());
         laDate->setText(QApplication::translate("MainWindow", "XX/XX/XX", Q_NULLPTR));
         laTime->setText(QApplication::translate("MainWindow", "XX:XX:XX", Q_NULLPTR));
         cbSelectProfileMain->clear();
@@ -7899,6 +7918,7 @@ public:
         laFault11->setText(QApplication::translate("MainWindow", "Acil Durum Butonu Bas\304\261l\304\261", Q_NULLPTR));
         laFault11_2->setText(QApplication::translate("MainWindow", "Acil Durum ", Q_NULLPTR));
         laFault12->setText(QApplication::translate("MainWindow", "12 S\304\261cakl\304\261k y\303\274ksek (\302\260C>150)", Q_NULLPTR));
+        laFault11_3->setText(QApplication::translate("MainWindow", "Acil Durum Butonu Bas\304\261l\304\261", Q_NULLPTR));
         laFault51->setText(QApplication::translate("MainWindow", "Nem cihaz\304\261 haberle\305\237me hatas\304\261", Q_NULLPTR));
         laFault52->setText(QApplication::translate("MainWindow", "Nem sensor\303\274 tak\304\261l\304\261 deyil", Q_NULLPTR));
         laFault53->setText(QApplication::translate("MainWindow", "Y\303\274ksek s\304\261cakl\304\261kta nem sensor\303\274 tak\304\261l\304\261 ", Q_NULLPTR));
