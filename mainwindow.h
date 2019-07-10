@@ -21,6 +21,7 @@
 #include "serialprocess.h"
 #include "myserial.h"
 #include "keyboard/numpad.h"
+#include <QTranslator>
 
 namespace Ui {
 class MainWindow;
@@ -335,10 +336,9 @@ private slots:
 
    void on_leFixHumidtyValue_editingFinished();
 
-
-
    void on_cbFixMode_currentIndexChanged(int index);
 
+   void changeLanguageToEnglish();
 private:
     Ui::MainWindow *ui;
 
@@ -346,6 +346,7 @@ private:
     QTimer *timer1000, *timer250, *timerTemp, *timerVib, *timerPressure,*timerScreen;
     SerialProcess *proc;
     Numpad *lineEditkeyboard;
+
 };
 
 #endif // MAINWINDOW_H

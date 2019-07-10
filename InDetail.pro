@@ -49,6 +49,7 @@ FORMS    += mainwindow.ui \
     keyboard/keyboard_copy.ui \
     keyboard/numpad.ui
 
-RESOURCES += src.qrc
+RESOURCES += src.qrc \
+    language.qrc
 
-DISTFILES +=
+TRANSLATIONS    += english.ts \

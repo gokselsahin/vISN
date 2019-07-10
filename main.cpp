@@ -1,10 +1,14 @@
 #include "mainwindow.h"
 #include <QApplication>
+#include <QTranslator>
 
 int main(int argc, char *argv[])
 {
     QCoreApplication::addLibraryPath("./");
     QApplication a(argc, argv);
+  //  QTranslator translator;
+  //  translator.load("english.qm");
+  //  a.installTranslator(&translator);
     MainWindow w;
     //w.setWindowFlags( Qt::Window | Qt::WindowCloseButtonHint | Qt::CustomizeWindowHint);
     w.setWindowFlags( Qt::Window | Qt::WindowCloseButtonHint | Qt::CustomizeWindowHint);
@@ -12,6 +16,7 @@ int main(int argc, char *argv[])
   //  w.setGeometry(r1);
 
     w.show();
+
   // w.showFullScreen();
 
    // w.showNormal();

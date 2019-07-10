@@ -42,7 +42,6 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QGridLayout *gridLayout;
     QTabWidget *tabWidget;
     QWidget *tab_Main;
     QPushButton *bRecipeMode;
@@ -51,8 +50,6 @@ public:
     QLabel *rectRecipe;
     QLabel *rectFix;
     QLabel *rect1500h;
-    QPushButton *bClearLogTable_2;
-    QPushButton *bLightsMain;
     QLabel *laDate;
     QLabel *laTime;
     QStackedWidget *mainPage;
@@ -130,7 +127,6 @@ public:
     QLabel *label_57;
     QLineEdit *leLiquidCirculationTime1500h;
     QPushButton *bChooseData;
-    QPushButton *bMainDoorInfo;
     QWidget *tab_setTemp;
     QStackedWidget *detailsPages;
     QWidget *detailsMain;
@@ -190,21 +186,14 @@ public:
     QCheckBox *cB_test;
     QCheckBox *cB_test_hazirlik;
     QCheckBox *cB_nem;
-    QCheckBox *cB_nem_aliniyor;
     QCheckBox *cB_kompresor;
     QCheckBox *cB_sogutma;
     QCheckBox *cB_nem_alma;
-    QCheckBox *cB_nemlendirme;
-    QCheckBox *cB_gaz_toplama;
-    QCheckBox *cB_sogutma_yapiliyor;
     QCheckBox *cB_test_tamamlandi;
     QCheckBox *cB_nem_cihaz;
-    QCheckBox *cB_nem_istnen_degerde;
-    QCheckBox *cB_sicalik_set_degerde;
     QCheckBox *cB_rezistans;
     QCheckBox *cB_bos_blok;
     QCheckBox *cB_fan;
-    QCheckBox *cB_isit_aktif;
     QCheckBox *cB_sicaklik;
     QCheckBox *cB_Kondenser;
     QCheckBox *cB_adim_izle;
@@ -365,13 +354,11 @@ public:
     QLabel *label_2;
     QLabel *laTime_2;
     QLabel *laDate_2;
-    QPushButton *bMinimize_2;
     QWidget *tab_Details;
     QComboBox *cbSelectGraph;
     QCustomPlot *tTestGraph;
     QLabel *laTestName;
     QCustomPlot *pTestGraph;
-    QPushButton *bScreenshot;
     QWidget *layoutWidget11;
     QVBoxLayout *verticalLayout_10;
     QPushButton *ZoomInVer;
@@ -379,9 +366,7 @@ public:
     QPushButton *ZoomInHor;
     QPushButton *ZoomOutHor;
     QPushButton *ZoomCenter;
-    QLabel *laTime_3;
     QLabel *laDate_3;
-    QPushButton *bMinimize_3;
     QDoubleSpinBox *dsbPipe1Pressure;
     QLabel *label_14;
     QWidget *layoutWidget12;
@@ -394,6 +379,7 @@ public:
     QLabel *label_33;
     QDoubleSpinBox *dsbCabinTopTemp;
     QDoubleSpinBox *dsbCabinSetTemp;
+    QLabel *laTime_3;
     QWidget *tab_Manual;
     QStackedWidget *stackedWidget;
     QWidget *page_3;
@@ -666,8 +652,7 @@ public:
     QDoubleSpinBox *cabinHumidty;
     QLineEdit *lineEdit;
     QCheckBox *chbHumidityDevice;
-    QWidget *tab_calibration;
-    QPushButton *bSaveCalibrationValues;
+    QWidget *tab_settings;
     QDoubleSpinBox *dsbCalTankCleanInput;
     QLineEdit *leCalCleanTankLevelErr;
     QLineEdit *leCalCleanTankCoeff;
@@ -683,26 +668,34 @@ public:
     QDoubleSpinBox *dsbCalTankPressureInput;
     QLineEdit *leCalExpansionTankErr;
     QLabel *label_76;
-    QLabel *label_103;
-    QLabel *label_104;
-    QLabel *label_105;
-    QLineEdit *leCalCabinTopTempErr;
-    QLabel *label_106;
-    QLabel *label_108;
-    QLineEdit *leCalCabinTopTempCoeff;
-    QLineEdit *leCalCabinBottomTempCoeff;
-    QLineEdit *leCalCabinBottomTempErr;
-    QLineEdit *leCalPipePressure1Coeff;
-    QLineEdit *leCalPipePressure1Err;
-    QLabel *label_107;
-    QLabel *label_109;
-    QDoubleSpinBox *dsbCalCabinTopTempInput;
-    QDoubleSpinBox *dsbCalCabinBottomInput;
+    QStackedWidget *stackedWidget_4;
+    QWidget *page_15;
     QDoubleSpinBox *dsbCalCabinTopTempOut;
     QDoubleSpinBox *dsbCalCabinBottomTempOut;
-    QLabel *label_71;
-    QDoubleSpinBox *dsbCalPipePressure1Input;
     QDoubleSpinBox *dsbCalPipePressure1Out;
+    QLabel *label_107;
+    QLineEdit *leCalCabinTopTempCoeff;
+    QLineEdit *leCalCabinBottomTempCoeff;
+    QLineEdit *leCalPipePressure1Coeff;
+    QLabel *label_106;
+    QLabel *label_105;
+    QLineEdit *leCalCabinTopTempErr;
+    QLineEdit *leCalPipePressure1Err;
+    QLineEdit *leCalCabinBottomTempErr;
+    QLabel *label_104;
+    QDoubleSpinBox *dsbCalCabinTopTempInput;
+    QDoubleSpinBox *dsbCalPipePressure1Input;
+    QDoubleSpinBox *dsbCalCabinBottomInput;
+    QLabel *label_103;
+    QLabel *label_108;
+    QLabel *label_109;
+    QLabel *label_71;
+    QPushButton *bSaveCalibrationValues;
+    QWidget *page_16;
+    QPushButton *bLightsMain;
+    QPushButton *bMainDoorInfo;
+    QPushButton *bScreenshot;
+    QPushButton *bMinimize_3;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -715,7 +708,11 @@ public:
         MainWindow->setAutoFillBackground(false);
         MainWindow->setStyleSheet(QLatin1String("QMainWindow{\n"
 "color: rgb(255, 255, 255);\n"
-"background-color: rgb(0, 0, 0);\n"
+"\n"
+"background: qradialgradient(cx: 0.7, cy: -0.4,\n"
+"fx: 0.7, fy: -0.4,\n"
+"/*radius: 2, stop: 0 #A8EB12, stop: 1 #65BAAB );*/\n"
+"radius: 2, stop: 0 rgb(30, 30, 30), stop: 1 rgb(80, 80, 80) );\n"
 "}\n"
 "QtabWidget{\n"
 "color: rgb(255, 255, 255);\n"
@@ -764,13 +761,16 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setAutoFillBackground(false);
         centralWidget->setStyleSheet(QStringLiteral(""));
-        gridLayout = new QGridLayout(centralWidget);
-        gridLayout->setSpacing(6);
-        gridLayout->setContentsMargins(11, 11, 11, 11);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tabWidget->setEnabled(true);
+        tabWidget->setGeometry(QRect(109, 9, 1081, 701));
+        QSizePolicy sizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(tabWidget->sizePolicy().hasHeightForWidth());
+        tabWidget->setSizePolicy(sizePolicy);
+        tabWidget->setMaximumSize(QSize(1200, 720));
         QFont font1;
         font1.setPointSize(20);
         tabWidget->setFont(font1);
@@ -980,11 +980,11 @@ public:
         bRecipeMode = new QPushButton(tab_Main);
         bRecipeMode->setObjectName(QStringLiteral("bRecipeMode"));
         bRecipeMode->setGeometry(QRect(20, 70, 171, 91));
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(bRecipeMode->sizePolicy().hasHeightForWidth());
-        bRecipeMode->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(bRecipeMode->sizePolicy().hasHeightForWidth());
+        bRecipeMode->setSizePolicy(sizePolicy1);
         bRecipeMode->setMinimumSize(QSize(94, 50));
         bRecipeMode->setMaximumSize(QSize(200, 100));
         QFont font2;
@@ -1022,8 +1022,8 @@ public:
         bFixMode = new QPushButton(tab_Main);
         bFixMode->setObjectName(QStringLiteral("bFixMode"));
         bFixMode->setGeometry(QRect(20, 180, 171, 91));
-        sizePolicy.setHeightForWidth(bFixMode->sizePolicy().hasHeightForWidth());
-        bFixMode->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(bFixMode->sizePolicy().hasHeightForWidth());
+        bFixMode->setSizePolicy(sizePolicy1);
         bFixMode->setMinimumSize(QSize(94, 50));
         bFixMode->setMaximumSize(QSize(200, 100));
         bFixMode->setStyleSheet(QLatin1String("/*QPushButton {\n"
@@ -1058,8 +1058,8 @@ public:
         b1500hMode = new QPushButton(tab_Main);
         b1500hMode->setObjectName(QStringLiteral("b1500hMode"));
         b1500hMode->setGeometry(QRect(20, 450, 171, 50));
-        sizePolicy.setHeightForWidth(b1500hMode->sizePolicy().hasHeightForWidth());
-        b1500hMode->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(b1500hMode->sizePolicy().hasHeightForWidth());
+        b1500hMode->setSizePolicy(sizePolicy1);
         b1500hMode->setMinimumSize(QSize(94, 50));
         b1500hMode->setMaximumSize(QSize(200, 100));
         b1500hMode->setStyleSheet(QLatin1String("/*QPushButton {\n"
@@ -1106,87 +1106,9 @@ public:
         rect1500h->setGeometry(QRect(10, 280, 201, 111));
         rect1500h->setStyleSheet(QLatin1String("background-color: rgb(0, 0, 29);\n"
 "border-radius: 5px;"));
-        bClearLogTable_2 = new QPushButton(tab_Main);
-        bClearLogTable_2->setObjectName(QStringLiteral("bClearLogTable_2"));
-        bClearLogTable_2->setEnabled(true);
-        bClearLogTable_2->setGeometry(QRect(1070, 10, 94, 45));
-        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Minimum);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(bClearLogTable_2->sizePolicy().hasHeightForWidth());
-        bClearLogTable_2->setSizePolicy(sizePolicy1);
-        bClearLogTable_2->setMinimumSize(QSize(94, 45));
-        bClearLogTable_2->setMaximumSize(QSize(50, 50));
-        bClearLogTable_2->setStyleSheet(QLatin1String("/*QPushButton {\n"
-"color: #fff;\n"
-"font-family: \"Gill Sans MT\";\n"
-"font-size: 21px;\n"
-"border: 2px solid #c3fcf1;\n"
-"border-radius: 11px;\n"
-"padding: 5px;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"min-width: 80px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"background: qradialgradient(cx: 0.3, cy: -0.4,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}\n"
-"QPushButton:disabled {\n"
-"color: #888;\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}"));
-        bLightsMain = new QPushButton(tab_Main);
-        bLightsMain->setObjectName(QStringLiteral("bLightsMain"));
-        bLightsMain->setGeometry(QRect(20, 610, 171, 91));
-        bLightsMain->setMinimumSize(QSize(94, 50));
-        bLightsMain->setFont(font2);
-        bLightsMain->setStyleSheet(QLatin1String("/*QPushButton {\n"
-"color: #fff;\n"
-"font-family: \"Gill Sans MT\";\n"
-"font-size: 21px;\n"
-"border: 2px solid #c3fcf1;\n"
-"border-radius: 11px;\n"
-"padding: 5px;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"min-width: 80px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"background: qradialgradient(cx: 0.3, cy: -0.4,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}\n"
-"QPushButton:disabled {\n"
-"color: #888;\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}*/"));
-        QIcon icon;
-        icon.addFile(QStringLiteral("img/light-bulb-OFF-128x128tr.png"), QSize(), QIcon::Normal, QIcon::Off);
-        icon.addFile(QStringLiteral("img/light-bulb-ON-128x128tr.png"), QSize(), QIcon::Active, QIcon::On);
-        bLightsMain->setIcon(icon);
-        bLightsMain->setIconSize(QSize(70, 70));
-        bLightsMain->setCheckable(true);
         laDate = new QLabel(tab_Main);
         laDate->setObjectName(QStringLiteral("laDate"));
-        laDate->setGeometry(QRect(760, 10, 121, 50));
+        laDate->setGeometry(QRect(810, 10, 121, 50));
         laDate->setMinimumSize(QSize(50, 50));
         laDate->setMaximumSize(QSize(150, 100));
         QFont font3;
@@ -1199,14 +1121,14 @@ public:
         laDate->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         laTime = new QLabel(tab_Main);
         laTime->setObjectName(QStringLiteral("laTime"));
-        laTime->setGeometry(QRect(900, 10, 121, 50));
+        laTime->setGeometry(QRect(940, 10, 121, 50));
         laTime->setMinimumSize(QSize(50, 50));
         laTime->setMaximumSize(QSize(150, 100));
         laTime->setFont(font3);
         laTime->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         mainPage = new QStackedWidget(tab_Main);
         mainPage->setObjectName(QStringLiteral("mainPage"));
-        mainPage->setGeometry(QRect(200, 60, 971, 661));
+        mainPage->setGeometry(QRect(200, 60, 871, 661));
         mainPage->setAutoFillBackground(false);
         mainPage->setStyleSheet(QLatin1String("QStackedWidget{\n"
 "	color: rgb(255, 85, 0);\n"
@@ -1422,8 +1344,8 @@ public:
 
         laSelectedProfileMain = new QLabel(layoutWidget);
         laSelectedProfileMain->setObjectName(QStringLiteral("laSelectedProfileMain"));
-        sizePolicy.setHeightForWidth(laSelectedProfileMain->sizePolicy().hasHeightForWidth());
-        laSelectedProfileMain->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(laSelectedProfileMain->sizePolicy().hasHeightForWidth());
+        laSelectedProfileMain->setSizePolicy(sizePolicy1);
         laSelectedProfileMain->setMinimumSize(QSize(0, 50));
         laSelectedProfileMain->setLayoutDirection(Qt::LeftToRight);
         laSelectedProfileMain->setStyleSheet(QLatin1String("QLabel{\n"
@@ -1453,8 +1375,8 @@ public:
 
         leTTotalCycle = new QLineEdit(layoutWidget1);
         leTTotalCycle->setObjectName(QStringLiteral("leTTotalCycle"));
-        sizePolicy.setHeightForWidth(leTTotalCycle->sizePolicy().hasHeightForWidth());
-        leTTotalCycle->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTTotalCycle->sizePolicy().hasHeightForWidth());
+        leTTotalCycle->setSizePolicy(sizePolicy1);
         leTTotalCycle->setMinimumSize(QSize(100, 50));
 
         horizontalLayout_2->addWidget(leTTotalCycle);
@@ -1476,8 +1398,11 @@ public:
         gridLayout_3->setContentsMargins(0, 0, 0, 0);
         laSetTempValue = new QLabel(layoutWidget2);
         laSetTempValue->setObjectName(QStringLiteral("laSetTempValue"));
-        sizePolicy1.setHeightForWidth(laSetTempValue->sizePolicy().hasHeightForWidth());
-        laSetTempValue->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy2(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(laSetTempValue->sizePolicy().hasHeightForWidth());
+        laSetTempValue->setSizePolicy(sizePolicy2);
         laSetTempValue->setMaximumSize(QSize(300, 300));
         QFont font5;
         font5.setFamily(QStringLiteral("Gill Sans MT"));
@@ -1505,8 +1430,8 @@ public:
 
         laSetTempValue_3 = new QLabel(layoutWidget2);
         laSetTempValue_3->setObjectName(QStringLiteral("laSetTempValue_3"));
-        sizePolicy1.setHeightForWidth(laSetTempValue_3->sizePolicy().hasHeightForWidth());
-        laSetTempValue_3->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(laSetTempValue_3->sizePolicy().hasHeightForWidth());
+        laSetTempValue_3->setSizePolicy(sizePolicy2);
         laSetTempValue_3->setMaximumSize(QSize(300, 300));
         laSetTempValue_3->setFont(font5);
         laSetTempValue_3->setStyleSheet(QLatin1String("QLabel{\n"
@@ -1911,8 +1836,8 @@ public:
 
         leSetTemperature1500h = new QLineEdit(layoutWidget5);
         leSetTemperature1500h->setObjectName(QStringLiteral("leSetTemperature1500h"));
-        sizePolicy.setHeightForWidth(leSetTemperature1500h->sizePolicy().hasHeightForWidth());
-        leSetTemperature1500h->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leSetTemperature1500h->sizePolicy().hasHeightForWidth());
+        leSetTemperature1500h->setSizePolicy(sizePolicy1);
         leSetTemperature1500h->setMinimumSize(QSize(135, 50));
         leSetTemperature1500h->setMaximumSize(QSize(135, 16777215));
 
@@ -1939,8 +1864,8 @@ public:
 
         leLiquidChangeTemp1500h = new QLineEdit(layoutWidget6);
         leLiquidChangeTemp1500h->setObjectName(QStringLiteral("leLiquidChangeTemp1500h"));
-        sizePolicy.setHeightForWidth(leLiquidChangeTemp1500h->sizePolicy().hasHeightForWidth());
-        leLiquidChangeTemp1500h->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leLiquidChangeTemp1500h->sizePolicy().hasHeightForWidth());
+        leLiquidChangeTemp1500h->setSizePolicy(sizePolicy1);
         leLiquidChangeTemp1500h->setMinimumSize(QSize(135, 50));
         leLiquidChangeTemp1500h->setMaximumSize(QSize(135, 16777215));
 
@@ -1967,8 +1892,8 @@ public:
 
         leLiquidChangePeriod1500h = new QLineEdit(layoutWidget7);
         leLiquidChangePeriod1500h->setObjectName(QStringLiteral("leLiquidChangePeriod1500h"));
-        sizePolicy.setHeightForWidth(leLiquidChangePeriod1500h->sizePolicy().hasHeightForWidth());
-        leLiquidChangePeriod1500h->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leLiquidChangePeriod1500h->sizePolicy().hasHeightForWidth());
+        leLiquidChangePeriod1500h->setSizePolicy(sizePolicy1);
         leLiquidChangePeriod1500h->setMinimumSize(QSize(135, 50));
         leLiquidChangePeriod1500h->setMaximumSize(QSize(135, 16777215));
 
@@ -1995,8 +1920,8 @@ public:
 
         leTotalTestDuration1500h = new QLineEdit(layoutWidget8);
         leTotalTestDuration1500h->setObjectName(QStringLiteral("leTotalTestDuration1500h"));
-        sizePolicy.setHeightForWidth(leTotalTestDuration1500h->sizePolicy().hasHeightForWidth());
-        leTotalTestDuration1500h->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTotalTestDuration1500h->sizePolicy().hasHeightForWidth());
+        leTotalTestDuration1500h->setSizePolicy(sizePolicy1);
         leTotalTestDuration1500h->setMinimumSize(QSize(135, 50));
         leTotalTestDuration1500h->setMaximumSize(QSize(135, 16777215));
 
@@ -2023,8 +1948,8 @@ public:
 
         leSetPressure1500h = new QLineEdit(layoutWidget9);
         leSetPressure1500h->setObjectName(QStringLiteral("leSetPressure1500h"));
-        sizePolicy.setHeightForWidth(leSetPressure1500h->sizePolicy().hasHeightForWidth());
-        leSetPressure1500h->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leSetPressure1500h->sizePolicy().hasHeightForWidth());
+        leSetPressure1500h->setSizePolicy(sizePolicy1);
         leSetPressure1500h->setMinimumSize(QSize(135, 50));
         leSetPressure1500h->setMaximumSize(QSize(135, 16777215));
 
@@ -2051,8 +1976,8 @@ public:
 
         leLiquidCirculationTime1500h = new QLineEdit(layoutWidget10);
         leLiquidCirculationTime1500h->setObjectName(QStringLiteral("leLiquidCirculationTime1500h"));
-        sizePolicy.setHeightForWidth(leLiquidCirculationTime1500h->sizePolicy().hasHeightForWidth());
-        leLiquidCirculationTime1500h->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leLiquidCirculationTime1500h->sizePolicy().hasHeightForWidth());
+        leLiquidCirculationTime1500h->setSizePolicy(sizePolicy1);
         leLiquidCirculationTime1500h->setMinimumSize(QSize(135, 50));
         leLiquidCirculationTime1500h->setMaximumSize(QSize(135, 16777215));
 
@@ -2094,48 +2019,7 @@ public:
 "}"));
         bChooseData->setIconSize(QSize(24, 15));
         mainPage->addWidget(p1500h);
-        bMainDoorInfo = new QPushButton(tab_Main);
-        bMainDoorInfo->setObjectName(QStringLiteral("bMainDoorInfo"));
-        bMainDoorInfo->setEnabled(true);
-        bMainDoorInfo->setGeometry(QRect(20, 510, 171, 91));
-        bMainDoorInfo->setMinimumSize(QSize(94, 50));
-        bMainDoorInfo->setFont(font2);
-        bMainDoorInfo->setStyleSheet(QLatin1String("QPushButton {\n"
-"color: rgb(255, 255, 255);\n"
-"font-family: \"Gill Sans MT\";\n"
-"font-size: 25px;\n"
-"border: 2px solid rgb(255, 85, 0);\n"
-"/*border: 2px solid rgb(0, 115, 255);*/\n"
-"border-radius: 5px;\n"
-"padding: 5px;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
-"min-width: 80px;\n"
-"}\n"
-"/*\n"
-"QPushButton:hover {\n"
-"background: qradialgradient(cx: 0.3, cy: -0.4,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(220, 0, 0), stop: 1 rgb(150, 0, 0));\n"
-"}\n"
-"QPushButton:pressed {\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}\n"
-"*/\n"
-"QPushButton:disabled {\n"
-"color: rgb(255, 255, 255);\n"
-"border: 2px solid rgb(255, 85, 0);\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
-"}"));
-        bMainDoorInfo->setCheckable(true);
         tabWidget->addTab(tab_Main, QString());
-        bClearLogTable_2->raise();
-        bLightsMain->raise();
         laDate->raise();
         laTime->raise();
         rectRecipe->raise();
@@ -2145,12 +2029,11 @@ public:
         bFixMode->raise();
         b1500hMode->raise();
         mainPage->raise();
-        bMainDoorInfo->raise();
         tab_setTemp = new QWidget();
         tab_setTemp->setObjectName(QStringLiteral("tab_setTemp"));
         detailsPages = new QStackedWidget(tab_setTemp);
         detailsPages->setObjectName(QStringLiteral("detailsPages"));
-        detailsPages->setGeometry(QRect(-10, 60, 1141, 641));
+        detailsPages->setGeometry(QRect(-30, 60, 1101, 641));
         detailsPages->setStyleSheet(QLatin1String("QStackedWidget{\n"
 "background: qradialgradient(cx: 0.7, cy: -0.4,\n"
 "fx: 0.7, fy: -0.4,\n"
@@ -2174,7 +2057,7 @@ public:
         detailsMain->setObjectName(QStringLiteral("detailsMain"));
         detailsBottomPages = new QStackedWidget(detailsMain);
         detailsBottomPages->setObjectName(QStringLiteral("detailsBottomPages"));
-        detailsBottomPages->setGeometry(QRect(10, 150, 1111, 381));
+        detailsBottomPages->setGeometry(QRect(40, 150, 1051, 371));
         detailsBottomPages->setStyleSheet(QLatin1String("QStackedWidget{\n"
 "\n"
 "background-color: qradialgradient(cx: 0.7, cy: -0.4,\n"
@@ -2213,7 +2096,7 @@ public:
         __qtablewidgetitem1->setFont(font7);
         warningTable->setHorizontalHeaderItem(1, __qtablewidgetitem1);
         warningTable->setObjectName(QStringLiteral("warningTable"));
-        warningTable->setGeometry(QRect(550, 130, 561, 211));
+        warningTable->setGeometry(QRect(510, 80, 521, 211));
         warningTable->setFont(font7);
         warningTable->horizontalHeader()->setDefaultSectionSize(250);
         warningTable->horizontalHeader()->setMinimumSectionSize(100);
@@ -3139,39 +3022,10 @@ public:
 "}\n"
 ""));
         cB_nem->setChecked(false);
-        cB_nem_aliniyor = new QCheckBox(detailsBottomInfo);
-        cB_nem_aliniyor->setObjectName(QStringLiteral("cB_nem_aliniyor"));
-        cB_nem_aliniyor->setEnabled(false);
-        cB_nem_aliniyor->setGeometry(QRect(280, 290, 211, 21));
-        cB_nem_aliniyor->setStyleSheet(QLatin1String("\n"
-"QCheckBox::indicator {\n"
-"    width:20px;\n"
-"    height: 20px;\n"
-"}\n"
-"\n"
-"QCheckBox{\n"
-"font: 12pt;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
-"\n"
-"}\n"
-"QCheckBox::disabled{\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
-"}\n"
-"QCheckBox::enabled{\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
-"}\n"
-""));
-        cB_nem_aliniyor->setChecked(false);
         cB_kompresor = new QCheckBox(detailsBottomInfo);
         cB_kompresor->setObjectName(QStringLiteral("cB_kompresor"));
         cB_kompresor->setEnabled(false);
-        cB_kompresor->setGeometry(QRect(40, 330, 211, 21));
+        cB_kompresor->setGeometry(QRect(280, 260, 211, 21));
         cB_kompresor->setStyleSheet(QLatin1String("\n"
 "QCheckBox::indicator {\n"
 "    width:20px;\n"
@@ -3258,93 +3112,6 @@ public:
 "}\n"
 ""));
         cB_nem_alma->setChecked(false);
-        cB_nemlendirme = new QCheckBox(detailsBottomInfo);
-        cB_nemlendirme->setObjectName(QStringLiteral("cB_nemlendirme"));
-        cB_nemlendirme->setEnabled(false);
-        cB_nemlendirme->setGeometry(QRect(280, 260, 211, 21));
-        cB_nemlendirme->setStyleSheet(QLatin1String("\n"
-"QCheckBox::indicator {\n"
-"    width:20px;\n"
-"    height: 20px;\n"
-"}\n"
-"\n"
-"QCheckBox{\n"
-"font: 12pt;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
-"\n"
-"}\n"
-"QCheckBox::disabled{\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
-"}\n"
-"QCheckBox::enabled{\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
-"}\n"
-""));
-        cB_nemlendirme->setChecked(false);
-        cB_gaz_toplama = new QCheckBox(detailsBottomInfo);
-        cB_gaz_toplama->setObjectName(QStringLiteral("cB_gaz_toplama"));
-        cB_gaz_toplama->setEnabled(false);
-        cB_gaz_toplama->setGeometry(QRect(280, 350, 211, 21));
-        cB_gaz_toplama->setStyleSheet(QLatin1String("\n"
-"QCheckBox::indicator {\n"
-"    width:20px;\n"
-"    height: 20px;\n"
-"}\n"
-"\n"
-"QCheckBox{\n"
-"font: 12pt;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
-"\n"
-"}\n"
-"QCheckBox::disabled{\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
-"}\n"
-"QCheckBox::enabled{\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
-"}\n"
-""));
-        cB_gaz_toplama->setChecked(false);
-        cB_sogutma_yapiliyor = new QCheckBox(detailsBottomInfo);
-        cB_sogutma_yapiliyor->setObjectName(QStringLiteral("cB_sogutma_yapiliyor"));
-        cB_sogutma_yapiliyor->setEnabled(false);
-        cB_sogutma_yapiliyor->setGeometry(QRect(280, 200, 211, 21));
-        cB_sogutma_yapiliyor->setStyleSheet(QLatin1String("\n"
-"QCheckBox::indicator {\n"
-"    width:20px;\n"
-"    height: 20px;\n"
-"}\n"
-"\n"
-"QCheckBox{\n"
-"font: 12pt;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
-"\n"
-"}\n"
-"QCheckBox::disabled{\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
-"}\n"
-"QCheckBox::enabled{\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
-"}\n"
-""));
-        cB_sogutma_yapiliyor->setChecked(false);
         cB_test_tamamlandi = new QCheckBox(detailsBottomInfo);
         cB_test_tamamlandi->setObjectName(QStringLiteral("cB_test_tamamlandi"));
         cB_test_tamamlandi->setEnabled(false);
@@ -3377,7 +3144,7 @@ public:
         cB_nem_cihaz = new QCheckBox(detailsBottomInfo);
         cB_nem_cihaz->setObjectName(QStringLiteral("cB_nem_cihaz"));
         cB_nem_cihaz->setEnabled(false);
-        cB_nem_cihaz->setGeometry(QRect(40, 310, 211, 21));
+        cB_nem_cihaz->setGeometry(QRect(280, 230, 211, 21));
         cB_nem_cihaz->setStyleSheet(QLatin1String("\n"
 "QCheckBox::indicator {\n"
 "    width:20px;\n"
@@ -3406,68 +3173,10 @@ public:
 ""));
         cB_nem_cihaz->setCheckable(false);
         cB_nem_cihaz->setChecked(false);
-        cB_nem_istnen_degerde = new QCheckBox(detailsBottomInfo);
-        cB_nem_istnen_degerde->setObjectName(QStringLiteral("cB_nem_istnen_degerde"));
-        cB_nem_istnen_degerde->setEnabled(false);
-        cB_nem_istnen_degerde->setGeometry(QRect(280, 320, 211, 21));
-        cB_nem_istnen_degerde->setStyleSheet(QLatin1String("\n"
-"QCheckBox::indicator {\n"
-"    width:20px;\n"
-"    height: 20px;\n"
-"}\n"
-"\n"
-"QCheckBox{\n"
-"font: 12pt;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
-"\n"
-"}\n"
-"QCheckBox::disabled{\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
-"}\n"
-"QCheckBox::enabled{\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
-"}\n"
-""));
-        cB_nem_istnen_degerde->setChecked(false);
-        cB_sicalik_set_degerde = new QCheckBox(detailsBottomInfo);
-        cB_sicalik_set_degerde->setObjectName(QStringLiteral("cB_sicalik_set_degerde"));
-        cB_sicalik_set_degerde->setEnabled(false);
-        cB_sicalik_set_degerde->setGeometry(QRect(280, 230, 211, 21));
-        cB_sicalik_set_degerde->setStyleSheet(QLatin1String("\n"
-"QCheckBox::indicator {\n"
-"    width:20px;\n"
-"    height: 20px;\n"
-"}\n"
-"\n"
-"QCheckBox{\n"
-"font: 12pt;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
-"\n"
-"}\n"
-"QCheckBox::disabled{\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
-"}\n"
-"QCheckBox::enabled{\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
-"}\n"
-""));
-        cB_sicalik_set_degerde->setChecked(false);
         cB_rezistans = new QCheckBox(detailsBottomInfo);
         cB_rezistans->setObjectName(QStringLiteral("cB_rezistans"));
         cB_rezistans->setEnabled(false);
-        cB_rezistans->setGeometry(QRect(40, 290, 211, 21));
+        cB_rezistans->setGeometry(QRect(280, 200, 211, 21));
         cB_rezistans->setStyleSheet(QLatin1String("\n"
 "QCheckBox::indicator {\n"
 "    width:20px;\n"
@@ -3505,7 +3214,7 @@ public:
         cB_fan = new QCheckBox(detailsBottomInfo);
         cB_fan->setObjectName(QStringLiteral("cB_fan"));
         cB_fan->setEnabled(false);
-        cB_fan->setGeometry(QRect(40, 270, 211, 21));
+        cB_fan->setGeometry(QRect(280, 170, 211, 21));
         cB_fan->setStyleSheet(QLatin1String("\n"
 "QCheckBox::indicator {\n"
 "    width:20px;\n"
@@ -3531,35 +3240,6 @@ public:
 "}\n"
 ""));
         cB_fan->setChecked(false);
-        cB_isit_aktif = new QCheckBox(detailsBottomInfo);
-        cB_isit_aktif->setObjectName(QStringLiteral("cB_isit_aktif"));
-        cB_isit_aktif->setEnabled(false);
-        cB_isit_aktif->setGeometry(QRect(280, 170, 211, 21));
-        cB_isit_aktif->setStyleSheet(QLatin1String("\n"
-"QCheckBox::indicator {\n"
-"    width:20px;\n"
-"    height: 20px;\n"
-"}\n"
-"\n"
-"QCheckBox{\n"
-"font: 12pt;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
-"\n"
-"}\n"
-"QCheckBox::disabled{\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
-"}\n"
-"QCheckBox::enabled{\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
-"}\n"
-""));
-        cB_isit_aktif->setChecked(false);
         cB_sicaklik = new QCheckBox(detailsBottomInfo);
         cB_sicaklik->setObjectName(QStringLiteral("cB_sicaklik"));
         cB_sicaklik->setEnabled(false);
@@ -3592,7 +3272,7 @@ public:
         cB_Kondenser = new QCheckBox(detailsBottomInfo);
         cB_Kondenser->setObjectName(QStringLiteral("cB_Kondenser"));
         cB_Kondenser->setEnabled(false);
-        cB_Kondenser->setGeometry(QRect(40, 350, 211, 21));
+        cB_Kondenser->setGeometry(QRect(280, 290, 211, 21));
         cB_Kondenser->setStyleSheet(QLatin1String("\n"
 "QCheckBox::indicator {\n"
 "    width:20px;\n"
@@ -3624,7 +3304,7 @@ public:
         cB_adim_izle = new QCheckBox(detailsBottomInfo);
         cB_adim_izle->setObjectName(QStringLiteral("cB_adim_izle"));
         cB_adim_izle->setEnabled(false);
-        cB_adim_izle->setGeometry(QRect(280, 90, 201, 21));
+        cB_adim_izle->setGeometry(QRect(280, 80, 201, 21));
         cB_adim_izle->setStyleSheet(QLatin1String("\n"
 "QCheckBox::indicator {\n"
 "    width:20px;\n"
@@ -3652,7 +3332,7 @@ public:
         cB_adim_izle->setChecked(false);
         laCurrentTStepMain = new QLabel(detailsBottomInfo);
         laCurrentTStepMain->setObjectName(QStringLiteral("laCurrentTStepMain"));
-        laCurrentTStepMain->setGeometry(QRect(310, 90, 31, 21));
+        laCurrentTStepMain->setGeometry(QRect(300, 80, 31, 21));
         detailsBottomPages->addWidget(detailsBottomInfo);
         label_26->raise();
         pb_testProgress->raise();
@@ -3664,17 +3344,10 @@ public:
         cB_test->raise();
         cB_test_hazirlik->raise();
         cB_nem->raise();
-        cB_nem_aliniyor->raise();
         cB_sogutma->raise();
         cB_nem_alma->raise();
-        cB_nemlendirme->raise();
-        cB_gaz_toplama->raise();
-        cB_sogutma_yapiliyor->raise();
         cB_test_tamamlandi->raise();
-        cB_nem_istnen_degerde->raise();
-        cB_sicalik_set_degerde->raise();
         cB_bos_blok->raise();
-        cB_isit_aktif->raise();
         cB_sicaklik->raise();
         cB_Kondenser->raise();
         cB_kompresor->raise();
@@ -3712,8 +3385,8 @@ public:
         pbDirtyTankLevel = new QProgressBar(gb_KirliTankLevel);
         pbDirtyTankLevel->setObjectName(QStringLiteral("pbDirtyTankLevel"));
         pbDirtyTankLevel->setGeometry(QRect(60, 60, 111, 121));
-        sizePolicy1.setHeightForWidth(pbDirtyTankLevel->sizePolicy().hasHeightForWidth());
-        pbDirtyTankLevel->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(pbDirtyTankLevel->sizePolicy().hasHeightForWidth());
+        pbDirtyTankLevel->setSizePolicy(sizePolicy2);
         QFont font8;
         font8.setStyleStrategy(QFont::NoAntialias);
         pbDirtyTankLevel->setFont(font8);
@@ -3759,8 +3432,8 @@ public:
         pbCleanTankLevel = new QProgressBar(gb_CleanTankLevel);
         pbCleanTankLevel->setObjectName(QStringLiteral("pbCleanTankLevel"));
         pbCleanTankLevel->setGeometry(QRect(60, 60, 111, 121));
-        sizePolicy1.setHeightForWidth(pbCleanTankLevel->sizePolicy().hasHeightForWidth());
-        pbCleanTankLevel->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(pbCleanTankLevel->sizePolicy().hasHeightForWidth());
+        pbCleanTankLevel->setSizePolicy(sizePolicy2);
         pbCleanTankLevel->setFont(font8);
         pbCleanTankLevel->setLayoutDirection(Qt::LeftToRight);
         pbCleanTankLevel->setValue(50);
@@ -3813,8 +3486,8 @@ public:
         pbExpansionTankLevel = new QProgressBar(gb_basincTankLevel);
         pbExpansionTankLevel->setObjectName(QStringLiteral("pbExpansionTankLevel"));
         pbExpansionTankLevel->setGeometry(QRect(60, 60, 111, 121));
-        sizePolicy1.setHeightForWidth(pbExpansionTankLevel->sizePolicy().hasHeightForWidth());
-        pbExpansionTankLevel->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(pbExpansionTankLevel->sizePolicy().hasHeightForWidth());
+        pbExpansionTankLevel->setSizePolicy(sizePolicy2);
         pbExpansionTankLevel->setFont(font8);
         pbExpansionTankLevel->setLayoutDirection(Qt::LeftToRight);
         pbExpansionTankLevel->setValue(50);
@@ -3954,9 +3627,9 @@ public:
         Hortum1_2->setObjectName(QStringLiteral("Hortum1_2"));
         Hortum1_2->setEnabled(true);
         Hortum1_2->setGeometry(QRect(10, 80, 61, 71));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/images/img/chechbox_Pipe_checked.png"), QSize(), QIcon::Normal, QIcon::On);
-        Hortum1_2->setIcon(icon1);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/images/img/chechbox_Pipe_checked.png"), QSize(), QIcon::Normal, QIcon::On);
+        Hortum1_2->setIcon(icon);
         Hortum1_2->setIconSize(QSize(64, 64));
         Hortum1_2->setCheckable(true);
         Hortum1_2->setChecked(true);
@@ -4078,7 +3751,7 @@ public:
         detailsBottomError->setObjectName(QStringLiteral("detailsBottomError"));
         laFault41 = new QLabel(detailsBottomError);
         laFault41->setObjectName(QStringLiteral("laFault41"));
-        laFault41->setGeometry(QRect(200, 230, 721, 81));
+        laFault41->setGeometry(QRect(200, 150, 721, 81));
         laFault41->setFont(font10);
         laFault41->setStyleSheet(QLatin1String("background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                stop: 0  rgb(125, 85, 0), stop: 0.4  rgb(255,100, 0),\n"
@@ -4091,7 +3764,7 @@ public:
         laFault41->setAlignment(Qt::AlignCenter);
         laFault49 = new QLabel(detailsBottomError);
         laFault49->setObjectName(QStringLiteral("laFault49"));
-        laFault49->setGeometry(QRect(200, 230, 721, 81));
+        laFault49->setGeometry(QRect(200, 150, 721, 81));
         laFault49->setFont(font10);
         laFault49->setStyleSheet(QLatin1String("background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                stop: 0  rgb(125, 85, 0), stop: 0.4  rgb(255,100, 0),\n"
@@ -4104,7 +3777,7 @@ public:
         laFault49->setAlignment(Qt::AlignCenter);
         laFault47 = new QLabel(detailsBottomError);
         laFault47->setObjectName(QStringLiteral("laFault47"));
-        laFault47->setGeometry(QRect(200, 170, 721, 81));
+        laFault47->setGeometry(QRect(200, 150, 721, 81));
         laFault47->setFont(font10);
         laFault47->setStyleSheet(QLatin1String("background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                stop: 0  rgb(125, 85, 0), stop: 0.4  rgb(255,100, 0),\n"
@@ -4117,7 +3790,7 @@ public:
         laFault47->setAlignment(Qt::AlignCenter);
         laFault45 = new QLabel(detailsBottomError);
         laFault45->setObjectName(QStringLiteral("laFault45"));
-        laFault45->setGeometry(QRect(200, 170, 721, 81));
+        laFault45->setGeometry(QRect(200, 150, 721, 81));
         laFault45->setFont(font10);
         laFault45->setStyleSheet(QLatin1String("background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                stop: 0  rgb(125, 85, 0), stop: 0.4  rgb(255,100, 0),\n"
@@ -4130,7 +3803,7 @@ public:
         laFault45->setAlignment(Qt::AlignCenter);
         laFault48 = new QLabel(detailsBottomError);
         laFault48->setObjectName(QStringLiteral("laFault48"));
-        laFault48->setGeometry(QRect(200, 160, 721, 81));
+        laFault48->setGeometry(QRect(200, 150, 721, 81));
         laFault48->setFont(font10);
         laFault48->setStyleSheet(QLatin1String("background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
 "                                stop: 0  rgb(125, 85, 0), stop: 0.4  rgb(255,100, 0),\n"
@@ -4335,22 +4008,22 @@ public:
         detailsBottomPages->addWidget(coolerFault);
         btnDetailsInfo = new QPushButton(detailsMain);
         btnDetailsInfo->setObjectName(QStringLiteral("btnDetailsInfo"));
-        btnDetailsInfo->setGeometry(QRect(250, 540, 94, 61));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral(":/images/img/button_info.png"), QSize(), QIcon::Normal, QIcon::Off);
-        btnDetailsInfo->setIcon(icon2);
+        btnDetailsInfo->setGeometry(QRect(210, 520, 94, 61));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/images/img/button_info.png"), QSize(), QIcon::Normal, QIcon::Off);
+        btnDetailsInfo->setIcon(icon1);
         btnDetailsInfo->setIconSize(QSize(94, 61));
         btnDetailsHeater = new QPushButton(detailsMain);
         btnDetailsHeater->setObjectName(QStringLiteral("btnDetailsHeater"));
-        btnDetailsHeater->setGeometry(QRect(550, 540, 94, 61));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral(":/images/img/heater_on.png"), QSize(), QIcon::Normal, QIcon::On);
-        btnDetailsHeater->setIcon(icon3);
+        btnDetailsHeater->setGeometry(QRect(510, 520, 94, 61));
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/images/img/heater_on.png"), QSize(), QIcon::Normal, QIcon::On);
+        btnDetailsHeater->setIcon(icon2);
         btnDetailsHeater->setIconSize(QSize(94, 61));
         dsbCabinTopTemp_2 = new QDoubleSpinBox(detailsMain);
         dsbCabinTopTemp_2->setObjectName(QStringLiteral("dsbCabinTopTemp_2"));
         dsbCabinTopTemp_2->setEnabled(false);
-        dsbCabinTopTemp_2->setGeometry(QRect(190, 10, 221, 121));
+        dsbCabinTopTemp_2->setGeometry(QRect(320, 10, 221, 121));
         dsbCabinTopTemp_2->setMinimumSize(QSize(60, 80));
         dsbCabinTopTemp_2->setMaximumSize(QSize(300, 16777215));
         QFont font13;
@@ -4372,7 +4045,7 @@ public:
         dsbCabinTopTemp_2->setSingleStep(0.1);
         label_34 = new QLabel(detailsMain);
         label_34->setObjectName(QStringLiteral("label_34"));
-        label_34->setGeometry(QRect(30, 10, 170, 69));
+        label_34->setGeometry(QRect(140, 10, 170, 69));
         label_34->setMinimumSize(QSize(170, 69));
         QFont font14;
         font14.setFamily(QStringLiteral("Gill Sans MT"));
@@ -4388,7 +4061,7 @@ public:
         dsbCabinPIDTemp_2 = new QDoubleSpinBox(detailsMain);
         dsbCabinPIDTemp_2->setObjectName(QStringLiteral("dsbCabinPIDTemp_2"));
         dsbCabinPIDTemp_2->setEnabled(false);
-        dsbCabinPIDTemp_2->setGeometry(QRect(90, 80, 91, 51));
+        dsbCabinPIDTemp_2->setGeometry(QRect(220, 80, 91, 51));
         dsbCabinPIDTemp_2->setMinimumSize(QSize(50, 50));
         QFont font15;
         font15.setFamily(QStringLiteral("Gill Sans MT"));
@@ -4410,7 +4083,7 @@ public:
         dsbPipe1Pressure_2 = new QDoubleSpinBox(detailsMain);
         dsbPipe1Pressure_2->setObjectName(QStringLiteral("dsbPipe1Pressure_2"));
         dsbPipe1Pressure_2->setEnabled(false);
-        dsbPipe1Pressure_2->setGeometry(QRect(610, 10, 230, 121));
+        dsbPipe1Pressure_2->setGeometry(QRect(710, 10, 230, 121));
         dsbPipe1Pressure_2->setMinimumSize(QSize(180, 80));
         dsbPipe1Pressure_2->setMaximumSize(QSize(230, 16777215));
         dsbPipe1Pressure_2->setFont(font13);
@@ -4425,7 +4098,7 @@ public:
         dsbPipe1Pressure_2->setSingleStep(0.1);
         label_15 = new QLabel(detailsMain);
         label_15->setObjectName(QStringLiteral("label_15"));
-        label_15->setGeometry(QRect(460, 10, 170, 70));
+        label_15->setGeometry(QRect(560, 10, 170, 70));
         label_15->setMinimumSize(QSize(170, 70));
         label_15->setMaximumSize(QSize(16777215, 70));
         label_15->setFont(font14);
@@ -4437,7 +4110,7 @@ public:
         dsbSetPressure_2 = new QDoubleSpinBox(detailsMain);
         dsbSetPressure_2->setObjectName(QStringLiteral("dsbSetPressure_2"));
         dsbSetPressure_2->setEnabled(false);
-        dsbSetPressure_2->setGeometry(QRect(510, 80, 91, 51));
+        dsbSetPressure_2->setGeometry(QRect(610, 80, 91, 51));
         dsbSetPressure_2->setMinimumSize(QSize(50, 50));
         dsbSetPressure_2->setFont(font15);
         dsbSetPressure_2->setStyleSheet(QLatin1String("QDoubleSpinBox{\n"
@@ -4452,7 +4125,7 @@ public:
         dsbSetPressure_2->setSingleStep(0.1);
         bResetFault = new QPushButton(detailsMain);
         bResetFault->setObjectName(QStringLiteral("bResetFault"));
-        bResetFault->setGeometry(QRect(950, 540, 161, 61));
+        bResetFault->setGeometry(QRect(930, 520, 161, 61));
         bResetFault->setMinimumSize(QSize(94, 50));
         bResetFault->setFont(font2);
         bResetFault->setStyleSheet(QLatin1String("/*QPushButton {\n"
@@ -4486,40 +4159,40 @@ public:
         bResetFault->setCheckable(true);
         btnDetailsPressure = new QPushButton(detailsMain);
         btnDetailsPressure->setObjectName(QStringLiteral("btnDetailsPressure"));
-        btnDetailsPressure->setGeometry(QRect(650, 540, 94, 61));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral(":/images/img/alarm.png"), QSize(), QIcon::Normal, QIcon::Off);
-        btnDetailsPressure->setIcon(icon4);
+        btnDetailsPressure->setGeometry(QRect(610, 520, 94, 61));
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/images/img/alarm.png"), QSize(), QIcon::Normal, QIcon::Off);
+        btnDetailsPressure->setIcon(icon3);
         btnDetailsPressure->setIconSize(QSize(90, 55));
         btnIsnHumidty = new QPushButton(detailsMain);
         btnIsnHumidty->setObjectName(QStringLiteral("btnIsnHumidty"));
-        btnIsnHumidty->setGeometry(QRect(450, 540, 94, 61));
+        btnIsnHumidty->setGeometry(QRect(410, 520, 94, 61));
         btnIsnHumidty->setStyleSheet(QStringLiteral(""));
-        QIcon icon5;
-        icon5.addFile(QStringLiteral("img/cold.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        btnIsnHumidty->setIcon(icon5);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral("img/cold.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        btnIsnHumidty->setIcon(icon4);
         btnIsnHumidty->setIconSize(QSize(94, 61));
         btnDetailsTanklevel = new QPushButton(detailsMain);
         btnDetailsTanklevel->setObjectName(QStringLiteral("btnDetailsTanklevel"));
         btnDetailsTanklevel->setGeometry(QRect(10, 581, 94, 20));
-        QIcon icon6;
-        icon6.addFile(QStringLiteral(":/images/img/tankLevel_OK.png"), QSize(), QIcon::Normal, QIcon::On);
-        btnDetailsTanklevel->setIcon(icon6);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral(":/images/img/tankLevel_OK.png"), QSize(), QIcon::Normal, QIcon::On);
+        btnDetailsTanklevel->setIcon(icon5);
         btnDetailsTanklevel->setIconSize(QSize(94, 61));
         btnDetailsPipes = new QPushButton(detailsMain);
         btnDetailsPipes->setObjectName(QStringLiteral("btnDetailsPipes"));
         btnDetailsPipes->setGeometry(QRect(110, 580, 94, 21));
-        QIcon icon7;
-        icon7.addFile(QStringLiteral(":/images/img/chechbox_Pipe_checked.png"), QSize(), QIcon::Normal, QIcon::Off);
-        btnDetailsPipes->setIcon(icon7);
+        QIcon icon6;
+        icon6.addFile(QStringLiteral(":/images/img/chechbox_Pipe_checked.png"), QSize(), QIcon::Normal, QIcon::Off);
+        btnDetailsPipes->setIcon(icon6);
         btnDetailsPipes->setIconSize(QSize(104, 41));
         btnIsnHumidty_2 = new QPushButton(detailsMain);
         btnIsnHumidty_2->setObjectName(QStringLiteral("btnIsnHumidty_2"));
-        btnIsnHumidty_2->setGeometry(QRect(350, 540, 94, 61));
+        btnIsnHumidty_2->setGeometry(QRect(310, 520, 94, 61));
         btnIsnHumidty_2->setStyleSheet(QStringLiteral(""));
-        QIcon icon8;
-        icon8.addFile(QStringLiteral("img/nem.png"), QSize(), QIcon::Normal, QIcon::Off);
-        btnIsnHumidty_2->setIcon(icon8);
+        QIcon icon7;
+        icon7.addFile(QStringLiteral("img/nem.png"), QSize(), QIcon::Normal, QIcon::Off);
+        btnIsnHumidty_2->setIcon(icon7);
         btnIsnHumidty_2->setIconSize(QSize(94, 61));
         dsbSetHumidty = new QDoubleSpinBox(detailsMain);
         dsbSetHumidty->setObjectName(QStringLiteral("dsbSetHumidty"));
@@ -4555,7 +4228,7 @@ public:
         dsbHumidty->setSingleStep(0.1);
         bResetFaultBuzzer = new QPushButton(detailsMain);
         bResetFaultBuzzer->setObjectName(QStringLiteral("bResetFaultBuzzer"));
-        bResetFaultBuzzer->setGeometry(QRect(790, 540, 161, 61));
+        bResetFaultBuzzer->setGeometry(QRect(780, 520, 151, 61));
         bResetFaultBuzzer->setMinimumSize(QSize(94, 50));
         bResetFaultBuzzer->setFont(font2);
         bResetFaultBuzzer->setStyleSheet(QLatin1String("/*QPushButton {\n"
@@ -4614,8 +4287,8 @@ public:
         pbCleanTankLevel_2 = new QProgressBar(groupBox_2);
         pbCleanTankLevel_2->setObjectName(QStringLiteral("pbCleanTankLevel_2"));
         pbCleanTankLevel_2->setGeometry(QRect(50, 40, 71, 101));
-        sizePolicy1.setHeightForWidth(pbCleanTankLevel_2->sizePolicy().hasHeightForWidth());
-        pbCleanTankLevel_2->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(pbCleanTankLevel_2->sizePolicy().hasHeightForWidth());
+        pbCleanTankLevel_2->setSizePolicy(sizePolicy2);
         pbCleanTankLevel_2->setFont(font8);
         pbCleanTankLevel_2->setLayoutDirection(Qt::LeftToRight);
         pbCleanTankLevel_2->setValue(50);
@@ -4664,8 +4337,8 @@ public:
         pbDirtyTankLevel_2 = new QProgressBar(gbDirtyTankLevel_2);
         pbDirtyTankLevel_2->setObjectName(QStringLiteral("pbDirtyTankLevel_2"));
         pbDirtyTankLevel_2->setGeometry(QRect(50, 40, 71, 101));
-        sizePolicy1.setHeightForWidth(pbDirtyTankLevel_2->sizePolicy().hasHeightForWidth());
-        pbDirtyTankLevel_2->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(pbDirtyTankLevel_2->sizePolicy().hasHeightForWidth());
+        pbDirtyTankLevel_2->setSizePolicy(sizePolicy2);
         pbDirtyTankLevel_2->setFont(font8);
         pbDirtyTankLevel_2->setLayoutDirection(Qt::LeftToRight);
         pbDirtyTankLevel_2->setValue(50);
@@ -4714,8 +4387,8 @@ public:
         pbExpansionTankLevel_2 = new QProgressBar(groupBox_4);
         pbExpansionTankLevel_2->setObjectName(QStringLiteral("pbExpansionTankLevel_2"));
         pbExpansionTankLevel_2->setGeometry(QRect(50, 40, 71, 101));
-        sizePolicy1.setHeightForWidth(pbExpansionTankLevel_2->sizePolicy().hasHeightForWidth());
-        pbExpansionTankLevel_2->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(pbExpansionTankLevel_2->sizePolicy().hasHeightForWidth());
+        pbExpansionTankLevel_2->setSizePolicy(sizePolicy2);
         pbExpansionTankLevel_2->setFont(font8);
         pbExpansionTankLevel_2->setLayoutDirection(Qt::LeftToRight);
         pbExpansionTankLevel_2->setValue(50);
@@ -4923,42 +4596,6 @@ public:
         laDate_2->setMaximumSize(QSize(150, 100));
         laDate_2->setFont(font3);
         laDate_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        bMinimize_2 = new QPushButton(tab_setTemp);
-        bMinimize_2->setObjectName(QStringLiteral("bMinimize_2"));
-        bMinimize_2->setEnabled(true);
-        bMinimize_2->setGeometry(QRect(1070, 10, 94, 45));
-        sizePolicy1.setHeightForWidth(bMinimize_2->sizePolicy().hasHeightForWidth());
-        bMinimize_2->setSizePolicy(sizePolicy1);
-        bMinimize_2->setMinimumSize(QSize(94, 45));
-        bMinimize_2->setMaximumSize(QSize(50, 50));
-        bMinimize_2->setStyleSheet(QLatin1String("/*QPushButton {\n"
-"color: #fff;\n"
-"font-family: \"Gill Sans MT\";\n"
-"font-size: 21px;\n"
-"border: 2px solid #c3fcf1;\n"
-"border-radius: 11px;\n"
-"padding: 5px;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"min-width: 80px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"background: qradialgradient(cx: 0.3, cy: -0.4,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}\n"
-"QPushButton:disabled {\n"
-"color: #888;\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}"));
         tabWidget->addTab(tab_setTemp, QString());
         tab_Details = new QWidget();
         tab_Details->setObjectName(QStringLiteral("tab_Details"));
@@ -4972,7 +4609,7 @@ public:
         cbSelectGraph->setFont(font4);
         tTestGraph = new QCustomPlot(tab_Details);
         tTestGraph->setObjectName(QStringLiteral("tTestGraph"));
-        tTestGraph->setGeometry(QRect(160, 140, 1011, 551));
+        tTestGraph->setGeometry(QRect(160, 150, 881, 541));
         tTestGraph->setFont(font7);
         tTestGraph->setAutoFillBackground(false);
         laTestName = new QLabel(tab_Details);
@@ -4986,13 +4623,9 @@ public:
         laTestName->setAlignment(Qt::AlignCenter);
         pTestGraph = new QCustomPlot(tab_Details);
         pTestGraph->setObjectName(QStringLiteral("pTestGraph"));
-        pTestGraph->setGeometry(QRect(150, 140, 1011, 551));
+        pTestGraph->setGeometry(QRect(160, 140, 881, 501));
         pTestGraph->setFont(font7);
         pTestGraph->setAutoFillBackground(false);
-        bScreenshot = new QPushButton(tab_Details);
-        bScreenshot->setObjectName(QStringLiteral("bScreenshot"));
-        bScreenshot->setGeometry(QRect(1030, 80, 131, 61));
-        bScreenshot->setMinimumSize(QSize(94, 60));
         layoutWidget11 = new QWidget(tab_Details);
         layoutWidget11->setObjectName(QStringLiteral("layoutWidget11"));
         layoutWidget11->setGeometry(QRect(10, 140, 131, 421));
@@ -5171,56 +4804,13 @@ public:
 
         verticalLayout_10->addWidget(ZoomCenter);
 
-        laTime_3 = new QLabel(tab_Details);
-        laTime_3->setObjectName(QStringLiteral("laTime_3"));
-        laTime_3->setGeometry(QRect(930, 0, 121, 50));
-        laTime_3->setMinimumSize(QSize(50, 50));
-        laTime_3->setMaximumSize(QSize(150, 100));
-        laTime_3->setFont(font3);
-        laTime_3->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         laDate_3 = new QLabel(tab_Details);
         laDate_3->setObjectName(QStringLiteral("laDate_3"));
-        laDate_3->setGeometry(QRect(930, 40, 121, 50));
+        laDate_3->setGeometry(QRect(930, 50, 121, 50));
         laDate_3->setMinimumSize(QSize(50, 50));
         laDate_3->setMaximumSize(QSize(150, 100));
         laDate_3->setFont(font3);
         laDate_3->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        bMinimize_3 = new QPushButton(tab_Details);
-        bMinimize_3->setObjectName(QStringLiteral("bMinimize_3"));
-        bMinimize_3->setEnabled(true);
-        bMinimize_3->setGeometry(QRect(1060, 10, 94, 45));
-        sizePolicy1.setHeightForWidth(bMinimize_3->sizePolicy().hasHeightForWidth());
-        bMinimize_3->setSizePolicy(sizePolicy1);
-        bMinimize_3->setMinimumSize(QSize(94, 45));
-        bMinimize_3->setMaximumSize(QSize(50, 50));
-        bMinimize_3->setStyleSheet(QLatin1String("/*QPushButton {\n"
-"color: #fff;\n"
-"font-family: \"Gill Sans MT\";\n"
-"font-size: 21px;\n"
-"border: 2px solid #c3fcf1;\n"
-"border-radius: 11px;\n"
-"padding: 5px;\n"
-"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"min-width: 80px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"background: qradialgradient(cx: 0.3, cy: -0.4,\n"
-"fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #0E62A0);\n"
-"}\n"
-"QPushButton:pressed {\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}\n"
-"QPushButton:disabled {\n"
-"color: #888;\n"
-"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
-"fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
-"}"));
         dsbPipe1Pressure = new QDoubleSpinBox(tab_Details);
         dsbPipe1Pressure->setObjectName(QStringLiteral("dsbPipe1Pressure"));
         dsbPipe1Pressure->setEnabled(false);
@@ -5366,20 +4956,25 @@ public:
 
         gridLayout_7->addWidget(dsbCabinSetTemp, 1, 0, 1, 1);
 
+        laTime_3 = new QLabel(tab_Details);
+        laTime_3->setObjectName(QStringLiteral("laTime_3"));
+        laTime_3->setGeometry(QRect(940, 10, 101, 50));
+        laTime_3->setMinimumSize(QSize(50, 50));
+        laTime_3->setMaximumSize(QSize(150, 100));
+        laTime_3->setFont(font3);
+        laTime_3->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         tabWidget->addTab(tab_Details, QString());
         layoutWidget->raise();
         cbSelectGraph->raise();
         pTestGraph->raise();
-        bScreenshot->raise();
         layoutWidget->raise();
         layoutWidget->raise();
         tTestGraph->raise();
-        laTime_3->raise();
         laDate_3->raise();
-        bMinimize_3->raise();
         laTestName->raise();
         dsbPipe1Pressure->raise();
         label_14->raise();
+        laTime_3->raise();
         tab_Manual = new QWidget();
         tab_Manual->setObjectName(QStringLiteral("tab_Manual"));
         tab_Manual->setAutoFillBackground(false);
@@ -6066,7 +5661,7 @@ public:
         Hortum1->setObjectName(QStringLiteral("Hortum1"));
         Hortum1->setEnabled(true);
         Hortum1->setGeometry(QRect(10, 80, 61, 71));
-        Hortum1->setIcon(icon1);
+        Hortum1->setIcon(icon);
         Hortum1->setIconSize(QSize(64, 64));
         Hortum1->setCheckable(true);
         Hortum1->setChecked(true);
@@ -6118,8 +5713,8 @@ public:
         leTempInput_13 = new QLineEdit(page_14);
         leTempInput_13->setObjectName(QStringLiteral("leTempInput_13"));
         leTempInput_13->setGeometry(QRect(320, 590, 80, 32));
-        sizePolicy.setHeightForWidth(leTempInput_13->sizePolicy().hasHeightForWidth());
-        leTempInput_13->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTempInput_13->sizePolicy().hasHeightForWidth());
+        leTempInput_13->setSizePolicy(sizePolicy1);
         leTempInput_13->setMinimumSize(QSize(80, 32));
         leTempInput_13->setMaximumSize(QSize(135, 16777215));
         label_304 = new QLabel(page_14);
@@ -6129,8 +5724,8 @@ public:
         leTime_8 = new QLineEdit(page_14);
         leTime_8->setObjectName(QStringLiteral("leTime_8"));
         leTime_8->setGeometry(QRect(180, 390, 80, 32));
-        sizePolicy.setHeightForWidth(leTime_8->sizePolicy().hasHeightForWidth());
-        leTime_8->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTime_8->sizePolicy().hasHeightForWidth());
+        leTime_8->setSizePolicy(sizePolicy1);
         leTime_8->setMinimumSize(QSize(80, 32));
         leTime_8->setMaximumSize(QSize(135, 16777215));
         label_282 = new QLabel(page_14);
@@ -6140,8 +5735,8 @@ public:
         leTempInput_11 = new QLineEdit(page_14);
         leTempInput_11->setObjectName(QStringLiteral("leTempInput_11"));
         leTempInput_11->setGeometry(QRect(320, 510, 80, 32));
-        sizePolicy.setHeightForWidth(leTempInput_11->sizePolicy().hasHeightForWidth());
-        leTempInput_11->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTempInput_11->sizePolicy().hasHeightForWidth());
+        leTempInput_11->setSizePolicy(sizePolicy1);
         leTempInput_11->setMinimumSize(QSize(80, 32));
         leTempInput_11->setMaximumSize(QSize(135, 16777215));
         label_291 = new QLabel(page_14);
@@ -6166,22 +5761,22 @@ public:
         leTime_9 = new QLineEdit(page_14);
         leTime_9->setObjectName(QStringLiteral("leTime_9"));
         leTime_9->setGeometry(QRect(180, 430, 80, 32));
-        sizePolicy.setHeightForWidth(leTime_9->sizePolicy().hasHeightForWidth());
-        leTime_9->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTime_9->sizePolicy().hasHeightForWidth());
+        leTime_9->setSizePolicy(sizePolicy1);
         leTime_9->setMinimumSize(QSize(80, 32));
         leTime_9->setMaximumSize(QSize(135, 16777215));
         leTime_4 = new QLineEdit(page_14);
         leTime_4->setObjectName(QStringLiteral("leTime_4"));
         leTime_4->setGeometry(QRect(180, 230, 80, 32));
-        sizePolicy.setHeightForWidth(leTime_4->sizePolicy().hasHeightForWidth());
-        leTime_4->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTime_4->sizePolicy().hasHeightForWidth());
+        leTime_4->setSizePolicy(sizePolicy1);
         leTime_4->setMinimumSize(QSize(80, 32));
         leTime_4->setMaximumSize(QSize(135, 16777215));
         leTempInput_0 = new QLineEdit(page_14);
         leTempInput_0->setObjectName(QStringLiteral("leTempInput_0"));
         leTempInput_0->setGeometry(QRect(320, 70, 80, 32));
-        sizePolicy.setHeightForWidth(leTempInput_0->sizePolicy().hasHeightForWidth());
-        leTempInput_0->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTempInput_0->sizePolicy().hasHeightForWidth());
+        leTempInput_0->setSizePolicy(sizePolicy1);
         leTempInput_0->setMinimumSize(QSize(80, 32));
         leTempInput_0->setMaximumSize(QSize(135, 16777215));
         leTempInput_0->setStyleSheet(QStringLiteral(""));
@@ -6189,8 +5784,8 @@ public:
         leHumidity_7 = new QLineEdit(page_14);
         leHumidity_7->setObjectName(QStringLiteral("leHumidity_7"));
         leHumidity_7->setGeometry(QRect(460, 350, 80, 32));
-        sizePolicy.setHeightForWidth(leHumidity_7->sizePolicy().hasHeightForWidth());
-        leHumidity_7->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leHumidity_7->sizePolicy().hasHeightForWidth());
+        leHumidity_7->setSizePolicy(sizePolicy1);
         leHumidity_7->setMinimumSize(QSize(80, 32));
         leHumidity_7->setMaximumSize(QSize(135, 16777215));
         label_311 = new QLabel(page_14);
@@ -6207,15 +5802,15 @@ public:
         leTempInput_10 = new QLineEdit(page_14);
         leTempInput_10->setObjectName(QStringLiteral("leTempInput_10"));
         leTempInput_10->setGeometry(QRect(320, 430, 80, 32));
-        sizePolicy.setHeightForWidth(leTempInput_10->sizePolicy().hasHeightForWidth());
-        leTempInput_10->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTempInput_10->sizePolicy().hasHeightForWidth());
+        leTempInput_10->setSizePolicy(sizePolicy1);
         leTempInput_10->setMinimumSize(QSize(80, 32));
         leTempInput_10->setMaximumSize(QSize(135, 16777215));
         leTempInput_5 = new QLineEdit(page_14);
         leTempInput_5->setObjectName(QStringLiteral("leTempInput_5"));
         leTempInput_5->setGeometry(QRect(320, 270, 80, 32));
-        sizePolicy.setHeightForWidth(leTempInput_5->sizePolicy().hasHeightForWidth());
-        leTempInput_5->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTempInput_5->sizePolicy().hasHeightForWidth());
+        leTempInput_5->setSizePolicy(sizePolicy1);
         leTempInput_5->setMinimumSize(QSize(80, 32));
         leTempInput_5->setMaximumSize(QSize(135, 16777215));
         label_227 = new QLabel(page_14);
@@ -6231,15 +5826,15 @@ public:
         leHumidity_4 = new QLineEdit(page_14);
         leHumidity_4->setObjectName(QStringLiteral("leHumidity_4"));
         leHumidity_4->setGeometry(QRect(460, 230, 80, 32));
-        sizePolicy.setHeightForWidth(leHumidity_4->sizePolicy().hasHeightForWidth());
-        leHumidity_4->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leHumidity_4->sizePolicy().hasHeightForWidth());
+        leHumidity_4->setSizePolicy(sizePolicy1);
         leHumidity_4->setMinimumSize(QSize(80, 32));
         leHumidity_4->setMaximumSize(QSize(135, 16777215));
         leHumidity_0 = new QLineEdit(page_14);
         leHumidity_0->setObjectName(QStringLiteral("leHumidity_0"));
         leHumidity_0->setGeometry(QRect(460, 70, 80, 32));
-        sizePolicy.setHeightForWidth(leHumidity_0->sizePolicy().hasHeightForWidth());
-        leHumidity_0->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leHumidity_0->sizePolicy().hasHeightForWidth());
+        leHumidity_0->setSizePolicy(sizePolicy1);
         leHumidity_0->setMinimumSize(QSize(80, 32));
         leHumidity_0->setMaximumSize(QSize(135, 16777215));
         label_307 = new QLabel(page_14);
@@ -6249,8 +5844,8 @@ public:
         leTime_10 = new QLineEdit(page_14);
         leTime_10->setObjectName(QStringLiteral("leTime_10"));
         leTime_10->setGeometry(QRect(180, 470, 80, 32));
-        sizePolicy.setHeightForWidth(leTime_10->sizePolicy().hasHeightForWidth());
-        leTime_10->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTime_10->sizePolicy().hasHeightForWidth());
+        leTime_10->setSizePolicy(sizePolicy1);
         leTime_10->setMinimumSize(QSize(80, 32));
         leTime_10->setMaximumSize(QSize(135, 16777215));
         label_312 = new QLabel(page_14);
@@ -6260,15 +5855,15 @@ public:
         leTime_1 = new QLineEdit(page_14);
         leTime_1->setObjectName(QStringLiteral("leTime_1"));
         leTime_1->setGeometry(QRect(180, 110, 80, 32));
-        sizePolicy.setHeightForWidth(leTime_1->sizePolicy().hasHeightForWidth());
-        leTime_1->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTime_1->sizePolicy().hasHeightForWidth());
+        leTime_1->setSizePolicy(sizePolicy1);
         leTime_1->setMinimumSize(QSize(80, 32));
         leTime_1->setMaximumSize(QSize(135, 16777215));
         leHumidity_11 = new QLineEdit(page_14);
         leHumidity_11->setObjectName(QStringLiteral("leHumidity_11"));
         leHumidity_11->setGeometry(QRect(460, 510, 80, 32));
-        sizePolicy.setHeightForWidth(leHumidity_11->sizePolicy().hasHeightForWidth());
-        leHumidity_11->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leHumidity_11->sizePolicy().hasHeightForWidth());
+        leHumidity_11->setSizePolicy(sizePolicy1);
         leHumidity_11->setMinimumSize(QSize(80, 32));
         leHumidity_11->setMaximumSize(QSize(135, 16777215));
         label_302 = new QLabel(page_14);
@@ -6278,8 +5873,8 @@ public:
         leTime_13 = new QLineEdit(page_14);
         leTime_13->setObjectName(QStringLiteral("leTime_13"));
         leTime_13->setGeometry(QRect(180, 590, 80, 32));
-        sizePolicy.setHeightForWidth(leTime_13->sizePolicy().hasHeightForWidth());
-        leTime_13->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTime_13->sizePolicy().hasHeightForWidth());
+        leTime_13->setSizePolicy(sizePolicy1);
         leTime_13->setMinimumSize(QSize(80, 32));
         leTime_13->setMaximumSize(QSize(135, 16777215));
         label_92 = new QLabel(page_14);
@@ -6291,15 +5886,15 @@ public:
         leTime_14 = new QLineEdit(page_14);
         leTime_14->setObjectName(QStringLiteral("leTime_14"));
         leTime_14->setGeometry(QRect(180, 630, 80, 32));
-        sizePolicy.setHeightForWidth(leTime_14->sizePolicy().hasHeightForWidth());
-        leTime_14->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTime_14->sizePolicy().hasHeightForWidth());
+        leTime_14->setSizePolicy(sizePolicy1);
         leTime_14->setMinimumSize(QSize(80, 32));
         leTime_14->setMaximumSize(QSize(135, 16777215));
         leTime_2 = new QLineEdit(page_14);
         leTime_2->setObjectName(QStringLiteral("leTime_2"));
         leTime_2->setGeometry(QRect(180, 150, 80, 32));
-        sizePolicy.setHeightForWidth(leTime_2->sizePolicy().hasHeightForWidth());
-        leTime_2->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTime_2->sizePolicy().hasHeightForWidth());
+        leTime_2->setSizePolicy(sizePolicy1);
         leTime_2->setMinimumSize(QSize(80, 32));
         leTime_2->setMaximumSize(QSize(135, 16777215));
         label_296 = new QLabel(page_14);
@@ -6309,8 +5904,8 @@ public:
         leHumidity_1 = new QLineEdit(page_14);
         leHumidity_1->setObjectName(QStringLiteral("leHumidity_1"));
         leHumidity_1->setGeometry(QRect(460, 110, 80, 32));
-        sizePolicy.setHeightForWidth(leHumidity_1->sizePolicy().hasHeightForWidth());
-        leHumidity_1->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leHumidity_1->sizePolicy().hasHeightForWidth());
+        leHumidity_1->setSizePolicy(sizePolicy1);
         leHumidity_1->setMinimumSize(QSize(80, 32));
         leHumidity_1->setMaximumSize(QSize(135, 16777215));
         label_225 = new QLabel(page_14);
@@ -6323,8 +5918,8 @@ public:
         leTempInput_6 = new QLineEdit(page_14);
         leTempInput_6->setObjectName(QStringLiteral("leTempInput_6"));
         leTempInput_6->setGeometry(QRect(320, 310, 80, 32));
-        sizePolicy.setHeightForWidth(leTempInput_6->sizePolicy().hasHeightForWidth());
-        leTempInput_6->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTempInput_6->sizePolicy().hasHeightForWidth());
+        leTempInput_6->setSizePolicy(sizePolicy1);
         leTempInput_6->setMinimumSize(QSize(80, 32));
         leTempInput_6->setMaximumSize(QSize(135, 16777215));
         label_295 = new QLabel(page_14);
@@ -6350,8 +5945,8 @@ public:
         leTempInput_7 = new QLineEdit(page_14);
         leTempInput_7->setObjectName(QStringLiteral("leTempInput_7"));
         leTempInput_7->setGeometry(QRect(320, 350, 80, 32));
-        sizePolicy.setHeightForWidth(leTempInput_7->sizePolicy().hasHeightForWidth());
-        leTempInput_7->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTempInput_7->sizePolicy().hasHeightForWidth());
+        leTempInput_7->setSizePolicy(sizePolicy1);
         leTempInput_7->setMinimumSize(QSize(80, 32));
         leTempInput_7->setMaximumSize(QSize(135, 16777215));
         label_289 = new QLabel(page_14);
@@ -6361,15 +5956,15 @@ public:
         leTempInput_9 = new QLineEdit(page_14);
         leTempInput_9->setObjectName(QStringLiteral("leTempInput_9"));
         leTempInput_9->setGeometry(QRect(320, 470, 80, 32));
-        sizePolicy.setHeightForWidth(leTempInput_9->sizePolicy().hasHeightForWidth());
-        leTempInput_9->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTempInput_9->sizePolicy().hasHeightForWidth());
+        leTempInput_9->setSizePolicy(sizePolicy1);
         leTempInput_9->setMinimumSize(QSize(80, 32));
         leTempInput_9->setMaximumSize(QSize(135, 16777215));
         leHumidity_5 = new QLineEdit(page_14);
         leHumidity_5->setObjectName(QStringLiteral("leHumidity_5"));
         leHumidity_5->setGeometry(QRect(460, 270, 80, 32));
-        sizePolicy.setHeightForWidth(leHumidity_5->sizePolicy().hasHeightForWidth());
-        leHumidity_5->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leHumidity_5->sizePolicy().hasHeightForWidth());
+        leHumidity_5->setSizePolicy(sizePolicy1);
         leHumidity_5->setMinimumSize(QSize(80, 32));
         leHumidity_5->setMaximumSize(QSize(135, 16777215));
         label_285 = new QLabel(page_14);
@@ -6386,15 +5981,15 @@ public:
         leHumidity_10 = new QLineEdit(page_14);
         leHumidity_10->setObjectName(QStringLiteral("leHumidity_10"));
         leHumidity_10->setGeometry(QRect(460, 470, 80, 32));
-        sizePolicy.setHeightForWidth(leHumidity_10->sizePolicy().hasHeightForWidth());
-        leHumidity_10->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leHumidity_10->sizePolicy().hasHeightForWidth());
+        leHumidity_10->setSizePolicy(sizePolicy1);
         leHumidity_10->setMinimumSize(QSize(80, 32));
         leHumidity_10->setMaximumSize(QSize(135, 16777215));
         leTime_12 = new QLineEdit(page_14);
         leTime_12->setObjectName(QStringLiteral("leTime_12"));
         leTime_12->setGeometry(QRect(180, 550, 80, 32));
-        sizePolicy.setHeightForWidth(leTime_12->sizePolicy().hasHeightForWidth());
-        leTime_12->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTime_12->sizePolicy().hasHeightForWidth());
+        leTime_12->setSizePolicy(sizePolicy1);
         leTime_12->setMinimumSize(QSize(80, 32));
         leTime_12->setMaximumSize(QSize(135, 16777215));
         label_232 = new QLabel(page_14);
@@ -6403,36 +5998,36 @@ public:
         leTempInput_4 = new QLineEdit(page_14);
         leTempInput_4->setObjectName(QStringLiteral("leTempInput_4"));
         leTempInput_4->setGeometry(QRect(320, 230, 80, 32));
-        sizePolicy.setHeightForWidth(leTempInput_4->sizePolicy().hasHeightForWidth());
-        leTempInput_4->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTempInput_4->sizePolicy().hasHeightForWidth());
+        leTempInput_4->setSizePolicy(sizePolicy1);
         leTempInput_4->setMinimumSize(QSize(80, 32));
         leTempInput_4->setMaximumSize(QSize(135, 16777215));
         leHumidity_12 = new QLineEdit(page_14);
         leHumidity_12->setObjectName(QStringLiteral("leHumidity_12"));
         leHumidity_12->setGeometry(QRect(460, 550, 80, 32));
-        sizePolicy.setHeightForWidth(leHumidity_12->sizePolicy().hasHeightForWidth());
-        leHumidity_12->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leHumidity_12->sizePolicy().hasHeightForWidth());
+        leHumidity_12->setSizePolicy(sizePolicy1);
         leHumidity_12->setMinimumSize(QSize(80, 32));
         leHumidity_12->setMaximumSize(QSize(135, 16777215));
         leTempInput_3 = new QLineEdit(page_14);
         leTempInput_3->setObjectName(QStringLiteral("leTempInput_3"));
         leTempInput_3->setGeometry(QRect(320, 190, 80, 32));
-        sizePolicy.setHeightForWidth(leTempInput_3->sizePolicy().hasHeightForWidth());
-        leTempInput_3->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTempInput_3->sizePolicy().hasHeightForWidth());
+        leTempInput_3->setSizePolicy(sizePolicy1);
         leTempInput_3->setMinimumSize(QSize(80, 32));
         leTempInput_3->setMaximumSize(QSize(135, 16777215));
         leHumidity_13 = new QLineEdit(page_14);
         leHumidity_13->setObjectName(QStringLiteral("leHumidity_13"));
         leHumidity_13->setGeometry(QRect(460, 590, 80, 32));
-        sizePolicy.setHeightForWidth(leHumidity_13->sizePolicy().hasHeightForWidth());
-        leHumidity_13->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leHumidity_13->sizePolicy().hasHeightForWidth());
+        leHumidity_13->setSizePolicy(sizePolicy1);
         leHumidity_13->setMinimumSize(QSize(80, 32));
         leHumidity_13->setMaximumSize(QSize(135, 16777215));
         leHumidity_15 = new QLineEdit(page_14);
         leHumidity_15->setObjectName(QStringLiteral("leHumidity_15"));
         leHumidity_15->setGeometry(QRect(460, 670, 80, 32));
-        sizePolicy.setHeightForWidth(leHumidity_15->sizePolicy().hasHeightForWidth());
-        leHumidity_15->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leHumidity_15->sizePolicy().hasHeightForWidth());
+        leHumidity_15->setSizePolicy(sizePolicy1);
         leHumidity_15->setMinimumSize(QSize(80, 32));
         leHumidity_15->setMaximumSize(QSize(135, 16777215));
         label_90 = new QLabel(page_14);
@@ -6444,15 +6039,15 @@ public:
         leTime_5 = new QLineEdit(page_14);
         leTime_5->setObjectName(QStringLiteral("leTime_5"));
         leTime_5->setGeometry(QRect(180, 270, 80, 32));
-        sizePolicy.setHeightForWidth(leTime_5->sizePolicy().hasHeightForWidth());
-        leTime_5->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTime_5->sizePolicy().hasHeightForWidth());
+        leTime_5->setSizePolicy(sizePolicy1);
         leTime_5->setMinimumSize(QSize(80, 32));
         leTime_5->setMaximumSize(QSize(135, 16777215));
         leHumidity_2 = new QLineEdit(page_14);
         leHumidity_2->setObjectName(QStringLiteral("leHumidity_2"));
         leHumidity_2->setGeometry(QRect(460, 150, 80, 32));
-        sizePolicy.setHeightForWidth(leHumidity_2->sizePolicy().hasHeightForWidth());
-        leHumidity_2->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leHumidity_2->sizePolicy().hasHeightForWidth());
+        leHumidity_2->setSizePolicy(sizePolicy1);
         leHumidity_2->setMinimumSize(QSize(80, 32));
         leHumidity_2->setMaximumSize(QSize(135, 16777215));
         label_301 = new QLabel(page_14);
@@ -6462,8 +6057,8 @@ public:
         leTime_15 = new QLineEdit(page_14);
         leTime_15->setObjectName(QStringLiteral("leTime_15"));
         leTime_15->setGeometry(QRect(180, 670, 80, 32));
-        sizePolicy.setHeightForWidth(leTime_15->sizePolicy().hasHeightForWidth());
-        leTime_15->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTime_15->sizePolicy().hasHeightForWidth());
+        leTime_15->setSizePolicy(sizePolicy1);
         leTime_15->setMinimumSize(QSize(80, 32));
         leTime_15->setMaximumSize(QSize(135, 16777215));
         label_308 = new QLabel(page_14);
@@ -6473,29 +6068,29 @@ public:
         leTempInput_12 = new QLineEdit(page_14);
         leTempInput_12->setObjectName(QStringLiteral("leTempInput_12"));
         leTempInput_12->setGeometry(QRect(320, 550, 80, 32));
-        sizePolicy.setHeightForWidth(leTempInput_12->sizePolicy().hasHeightForWidth());
-        leTempInput_12->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTempInput_12->sizePolicy().hasHeightForWidth());
+        leTempInput_12->setSizePolicy(sizePolicy1);
         leTempInput_12->setMinimumSize(QSize(80, 32));
         leTempInput_12->setMaximumSize(QSize(135, 16777215));
         leTempInput_2 = new QLineEdit(page_14);
         leTempInput_2->setObjectName(QStringLiteral("leTempInput_2"));
         leTempInput_2->setGeometry(QRect(320, 150, 80, 32));
-        sizePolicy.setHeightForWidth(leTempInput_2->sizePolicy().hasHeightForWidth());
-        leTempInput_2->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTempInput_2->sizePolicy().hasHeightForWidth());
+        leTempInput_2->setSizePolicy(sizePolicy1);
         leTempInput_2->setMinimumSize(QSize(80, 32));
         leTempInput_2->setMaximumSize(QSize(135, 16777215));
         leTime_3 = new QLineEdit(page_14);
         leTime_3->setObjectName(QStringLiteral("leTime_3"));
         leTime_3->setGeometry(QRect(180, 190, 80, 32));
-        sizePolicy.setHeightForWidth(leTime_3->sizePolicy().hasHeightForWidth());
-        leTime_3->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTime_3->sizePolicy().hasHeightForWidth());
+        leTime_3->setSizePolicy(sizePolicy1);
         leTime_3->setMinimumSize(QSize(80, 32));
         leTime_3->setMaximumSize(QSize(135, 16777215));
         leHumidity_14 = new QLineEdit(page_14);
         leHumidity_14->setObjectName(QStringLiteral("leHumidity_14"));
         leHumidity_14->setGeometry(QRect(460, 630, 80, 32));
-        sizePolicy.setHeightForWidth(leHumidity_14->sizePolicy().hasHeightForWidth());
-        leHumidity_14->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leHumidity_14->sizePolicy().hasHeightForWidth());
+        leHumidity_14->setSizePolicy(sizePolicy1);
         leHumidity_14->setMinimumSize(QSize(80, 32));
         leHumidity_14->setMaximumSize(QSize(135, 16777215));
         label_230 = new QLabel(page_14);
@@ -6504,8 +6099,8 @@ public:
         leTempInput_8 = new QLineEdit(page_14);
         leTempInput_8->setObjectName(QStringLiteral("leTempInput_8"));
         leTempInput_8->setGeometry(QRect(320, 390, 80, 32));
-        sizePolicy.setHeightForWidth(leTempInput_8->sizePolicy().hasHeightForWidth());
-        leTempInput_8->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTempInput_8->sizePolicy().hasHeightForWidth());
+        leTempInput_8->setSizePolicy(sizePolicy1);
         leTempInput_8->setMinimumSize(QSize(80, 32));
         leTempInput_8->setMaximumSize(QSize(135, 16777215));
         label_309 = new QLabel(page_14);
@@ -6515,8 +6110,8 @@ public:
         leHumidity_9 = new QLineEdit(page_14);
         leHumidity_9->setObjectName(QStringLiteral("leHumidity_9"));
         leHumidity_9->setGeometry(QRect(460, 430, 80, 32));
-        sizePolicy.setHeightForWidth(leHumidity_9->sizePolicy().hasHeightForWidth());
-        leHumidity_9->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leHumidity_9->sizePolicy().hasHeightForWidth());
+        leHumidity_9->setSizePolicy(sizePolicy1);
         leHumidity_9->setMinimumSize(QSize(80, 32));
         leHumidity_9->setMaximumSize(QSize(135, 16777215));
         label_231 = new QLabel(page_14);
@@ -6529,8 +6124,8 @@ public:
         leTempInput_14 = new QLineEdit(page_14);
         leTempInput_14->setObjectName(QStringLiteral("leTempInput_14"));
         leTempInput_14->setGeometry(QRect(320, 630, 80, 32));
-        sizePolicy.setHeightForWidth(leTempInput_14->sizePolicy().hasHeightForWidth());
-        leTempInput_14->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTempInput_14->sizePolicy().hasHeightForWidth());
+        leTempInput_14->setSizePolicy(sizePolicy1);
         leTempInput_14->setMinimumSize(QSize(80, 32));
         leTempInput_14->setMaximumSize(QSize(135, 16777215));
         label_258 = new QLabel(page_14);
@@ -6539,15 +6134,15 @@ public:
         leTempInput_1 = new QLineEdit(page_14);
         leTempInput_1->setObjectName(QStringLiteral("leTempInput_1"));
         leTempInput_1->setGeometry(QRect(320, 110, 80, 32));
-        sizePolicy.setHeightForWidth(leTempInput_1->sizePolicy().hasHeightForWidth());
-        leTempInput_1->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTempInput_1->sizePolicy().hasHeightForWidth());
+        leTempInput_1->setSizePolicy(sizePolicy1);
         leTempInput_1->setMinimumSize(QSize(80, 32));
         leTempInput_1->setMaximumSize(QSize(135, 16777215));
         leTempInput_15 = new QLineEdit(page_14);
         leTempInput_15->setObjectName(QStringLiteral("leTempInput_15"));
         leTempInput_15->setGeometry(QRect(320, 670, 80, 32));
-        sizePolicy.setHeightForWidth(leTempInput_15->sizePolicy().hasHeightForWidth());
-        leTempInput_15->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTempInput_15->sizePolicy().hasHeightForWidth());
+        leTempInput_15->setSizePolicy(sizePolicy1);
         leTempInput_15->setMinimumSize(QSize(80, 32));
         leTempInput_15->setMaximumSize(QSize(135, 16777215));
         label_290 = new QLabel(page_14);
@@ -6578,8 +6173,8 @@ public:
         leTime_7 = new QLineEdit(page_14);
         leTime_7->setObjectName(QStringLiteral("leTime_7"));
         leTime_7->setGeometry(QRect(180, 350, 80, 32));
-        sizePolicy.setHeightForWidth(leTime_7->sizePolicy().hasHeightForWidth());
-        leTime_7->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTime_7->sizePolicy().hasHeightForWidth());
+        leTime_7->setSizePolicy(sizePolicy1);
         leTime_7->setMinimumSize(QSize(80, 32));
         leTime_7->setMaximumSize(QSize(135, 16777215));
         label_292 = new QLabel(page_14);
@@ -6589,8 +6184,8 @@ public:
         leHumidity_3 = new QLineEdit(page_14);
         leHumidity_3->setObjectName(QStringLiteral("leHumidity_3"));
         leHumidity_3->setGeometry(QRect(460, 190, 80, 32));
-        sizePolicy.setHeightForWidth(leHumidity_3->sizePolicy().hasHeightForWidth());
-        leHumidity_3->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leHumidity_3->sizePolicy().hasHeightForWidth());
+        leHumidity_3->setSizePolicy(sizePolicy1);
         leHumidity_3->setMinimumSize(QSize(80, 32));
         leHumidity_3->setMaximumSize(QSize(135, 16777215));
         label_93 = new QLabel(page_14);
@@ -6602,22 +6197,22 @@ public:
         leTime_11 = new QLineEdit(page_14);
         leTime_11->setObjectName(QStringLiteral("leTime_11"));
         leTime_11->setGeometry(QRect(180, 510, 80, 32));
-        sizePolicy.setHeightForWidth(leTime_11->sizePolicy().hasHeightForWidth());
-        leTime_11->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTime_11->sizePolicy().hasHeightForWidth());
+        leTime_11->setSizePolicy(sizePolicy1);
         leTime_11->setMinimumSize(QSize(80, 32));
         leTime_11->setMaximumSize(QSize(135, 16777215));
         leHumidity_6 = new QLineEdit(page_14);
         leHumidity_6->setObjectName(QStringLiteral("leHumidity_6"));
         leHumidity_6->setGeometry(QRect(460, 310, 80, 32));
-        sizePolicy.setHeightForWidth(leHumidity_6->sizePolicy().hasHeightForWidth());
-        leHumidity_6->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leHumidity_6->sizePolicy().hasHeightForWidth());
+        leHumidity_6->setSizePolicy(sizePolicy1);
         leHumidity_6->setMinimumSize(QSize(80, 32));
         leHumidity_6->setMaximumSize(QSize(135, 16777215));
         leTime_6 = new QLineEdit(page_14);
         leTime_6->setObjectName(QStringLiteral("leTime_6"));
         leTime_6->setGeometry(QRect(180, 310, 80, 32));
-        sizePolicy.setHeightForWidth(leTime_6->sizePolicy().hasHeightForWidth());
-        leTime_6->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leTime_6->sizePolicy().hasHeightForWidth());
+        leTime_6->setSizePolicy(sizePolicy1);
         leTime_6->setMinimumSize(QSize(80, 32));
         leTime_6->setMaximumSize(QSize(135, 16777215));
         label_303 = new QLabel(page_14);
@@ -6627,8 +6222,8 @@ public:
         leHumidity_8 = new QLineEdit(page_14);
         leHumidity_8->setObjectName(QStringLiteral("leHumidity_8"));
         leHumidity_8->setGeometry(QRect(460, 390, 80, 32));
-        sizePolicy.setHeightForWidth(leHumidity_8->sizePolicy().hasHeightForWidth());
-        leHumidity_8->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(leHumidity_8->sizePolicy().hasHeightForWidth());
+        leHumidity_8->setSizePolicy(sizePolicy1);
         leHumidity_8->setMinimumSize(QSize(80, 32));
         leHumidity_8->setMaximumSize(QSize(135, 16777215));
         bSaveProfromTabl = new QPushButton(page_14);
@@ -7432,12 +7027,264 @@ public:
         chbHumidityDevice->setIconSize(QSize(20, 20));
         chbHumidityDevice->setTristate(false);
         tabWidget->addTab(tab_Maintenance, QString());
-        tab_calibration = new QWidget();
-        tab_calibration->setObjectName(QStringLiteral("tab_calibration"));
-        bSaveCalibrationValues = new QPushButton(tab_calibration);
+        tab_settings = new QWidget();
+        tab_settings->setObjectName(QStringLiteral("tab_settings"));
+        dsbCalTankCleanInput = new QDoubleSpinBox(tab_settings);
+        dsbCalTankCleanInput->setObjectName(QStringLiteral("dsbCalTankCleanInput"));
+        dsbCalTankCleanInput->setEnabled(false);
+        dsbCalTankCleanInput->setGeometry(QRect(80, 556, 21, 48));
+        dsbCalTankCleanInput->setReadOnly(true);
+        dsbCalTankCleanInput->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        dsbCalTankCleanInput->setDecimals(1);
+        dsbCalTankCleanInput->setMinimum(-40);
+        dsbCalTankCleanInput->setMaximum(65532);
+        dsbCalTankCleanInput->setSingleStep(0.1);
+        leCalCleanTankLevelErr = new QLineEdit(tab_settings);
+        leCalCleanTankLevelErr->setObjectName(QStringLiteral("leCalCleanTankLevelErr"));
+        leCalCleanTankLevelErr->setGeometry(QRect(110, 546, 100, 50));
+        sizePolicy1.setHeightForWidth(leCalCleanTankLevelErr->sizePolicy().hasHeightForWidth());
+        leCalCleanTankLevelErr->setSizePolicy(sizePolicy1);
+        leCalCleanTankLevelErr->setMinimumSize(QSize(100, 50));
+        leCalCleanTankLevelErr->setMaximumSize(QSize(135, 16777215));
+        leCalCleanTankCoeff = new QLineEdit(tab_settings);
+        leCalCleanTankCoeff->setObjectName(QStringLiteral("leCalCleanTankCoeff"));
+        leCalCleanTankCoeff->setGeometry(QRect(217, 545, 100, 50));
+        sizePolicy1.setHeightForWidth(leCalCleanTankCoeff->sizePolicy().hasHeightForWidth());
+        leCalCleanTankCoeff->setSizePolicy(sizePolicy1);
+        leCalCleanTankCoeff->setMinimumSize(QSize(100, 50));
+        leCalCleanTankCoeff->setMaximumSize(QSize(135, 16777215));
+        dsbCalTankCleanOut = new QDoubleSpinBox(tab_settings);
+        dsbCalTankCleanOut->setObjectName(QStringLiteral("dsbCalTankCleanOut"));
+        dsbCalTankCleanOut->setEnabled(false);
+        dsbCalTankCleanOut->setGeometry(QRect(320, 540, 16, 48));
+        dsbCalTankCleanOut->setReadOnly(true);
+        dsbCalTankCleanOut->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        dsbCalTankCleanOut->setDecimals(2);
+        dsbCalTankCleanOut->setMinimum(-40);
+        dsbCalTankCleanOut->setMaximum(65535);
+        dsbCalTankCleanOut->setSingleStep(0.1);
+        label_72 = new QLabel(tab_settings);
+        label_72->setObjectName(QStringLiteral("label_72"));
+        label_72->setGeometry(QRect(10, 600, 41, 42));
+        leCalDirtyTankCoeff = new QLineEdit(tab_settings);
+        leCalDirtyTankCoeff->setObjectName(QStringLiteral("leCalDirtyTankCoeff"));
+        leCalDirtyTankCoeff->setGeometry(QRect(217, 602, 100, 50));
+        sizePolicy1.setHeightForWidth(leCalDirtyTankCoeff->sizePolicy().hasHeightForWidth());
+        leCalDirtyTankCoeff->setSizePolicy(sizePolicy1);
+        leCalDirtyTankCoeff->setMinimumSize(QSize(100, 50));
+        leCalDirtyTankCoeff->setMaximumSize(QSize(135, 16777215));
+        dsbCalTankDirtyOut = new QDoubleSpinBox(tab_settings);
+        dsbCalTankDirtyOut->setObjectName(QStringLiteral("dsbCalTankDirtyOut"));
+        dsbCalTankDirtyOut->setEnabled(false);
+        dsbCalTankDirtyOut->setGeometry(QRect(320, 597, 16, 48));
+        dsbCalTankDirtyOut->setReadOnly(true);
+        dsbCalTankDirtyOut->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        dsbCalTankDirtyOut->setDecimals(2);
+        dsbCalTankDirtyOut->setMinimum(-40);
+        dsbCalTankDirtyOut->setMaximum(65535);
+        dsbCalTankDirtyOut->setSingleStep(0.1);
+        dsbCalTankDirtyInput = new QDoubleSpinBox(tab_settings);
+        dsbCalTankDirtyInput->setObjectName(QStringLiteral("dsbCalTankDirtyInput"));
+        dsbCalTankDirtyInput->setEnabled(false);
+        dsbCalTankDirtyInput->setGeometry(QRect(80, 613, 16, 48));
+        dsbCalTankDirtyInput->setReadOnly(true);
+        dsbCalTankDirtyInput->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        dsbCalTankDirtyInput->setDecimals(1);
+        dsbCalTankDirtyInput->setMinimum(-40);
+        dsbCalTankDirtyInput->setMaximum(65532);
+        dsbCalTankDirtyInput->setSingleStep(0.1);
+        leCalDirtyTankErr = new QLineEdit(tab_settings);
+        leCalDirtyTankErr->setObjectName(QStringLiteral("leCalDirtyTankErr"));
+        leCalDirtyTankErr->setGeometry(QRect(110, 603, 100, 50));
+        sizePolicy1.setHeightForWidth(leCalDirtyTankErr->sizePolicy().hasHeightForWidth());
+        leCalDirtyTankErr->setSizePolicy(sizePolicy1);
+        leCalDirtyTankErr->setMinimumSize(QSize(100, 50));
+        leCalDirtyTankErr->setMaximumSize(QSize(135, 16777215));
+        label_75 = new QLabel(tab_settings);
+        label_75->setObjectName(QStringLiteral("label_75"));
+        label_75->setGeometry(QRect(10, 640, 51, 42));
+        leCalExpansionTankCoeff = new QLineEdit(tab_settings);
+        leCalExpansionTankCoeff->setObjectName(QStringLiteral("leCalExpansionTankCoeff"));
+        leCalExpansionTankCoeff->setGeometry(QRect(217, 659, 100, 50));
+        sizePolicy1.setHeightForWidth(leCalExpansionTankCoeff->sizePolicy().hasHeightForWidth());
+        leCalExpansionTankCoeff->setSizePolicy(sizePolicy1);
+        leCalExpansionTankCoeff->setMinimumSize(QSize(100, 50));
+        leCalExpansionTankCoeff->setMaximumSize(QSize(135, 16777215));
+        dsbCalTankPressureOut = new QDoubleSpinBox(tab_settings);
+        dsbCalTankPressureOut->setObjectName(QStringLiteral("dsbCalTankPressureOut"));
+        dsbCalTankPressureOut->setEnabled(false);
+        dsbCalTankPressureOut->setGeometry(QRect(320, 654, 16, 48));
+        dsbCalTankPressureOut->setReadOnly(true);
+        dsbCalTankPressureOut->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        dsbCalTankPressureOut->setDecimals(2);
+        dsbCalTankPressureOut->setMinimum(-40);
+        dsbCalTankPressureOut->setMaximum(65535);
+        dsbCalTankPressureOut->setSingleStep(0.1);
+        dsbCalTankPressureInput = new QDoubleSpinBox(tab_settings);
+        dsbCalTankPressureInput->setObjectName(QStringLiteral("dsbCalTankPressureInput"));
+        dsbCalTankPressureInput->setEnabled(false);
+        dsbCalTankPressureInput->setGeometry(QRect(80, 670, 16, 48));
+        dsbCalTankPressureInput->setReadOnly(true);
+        dsbCalTankPressureInput->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        dsbCalTankPressureInput->setDecimals(1);
+        dsbCalTankPressureInput->setMinimum(-40);
+        dsbCalTankPressureInput->setMaximum(65532);
+        dsbCalTankPressureInput->setSingleStep(0.1);
+        leCalExpansionTankErr = new QLineEdit(tab_settings);
+        leCalExpansionTankErr->setObjectName(QStringLiteral("leCalExpansionTankErr"));
+        leCalExpansionTankErr->setGeometry(QRect(110, 660, 100, 50));
+        sizePolicy1.setHeightForWidth(leCalExpansionTankErr->sizePolicy().hasHeightForWidth());
+        leCalExpansionTankErr->setSizePolicy(sizePolicy1);
+        leCalExpansionTankErr->setMinimumSize(QSize(100, 50));
+        leCalExpansionTankErr->setMaximumSize(QSize(135, 16777215));
+        label_76 = new QLabel(tab_settings);
+        label_76->setObjectName(QStringLiteral("label_76"));
+        label_76->setGeometry(QRect(10, 680, 41, 42));
+        stackedWidget_4 = new QStackedWidget(tab_settings);
+        stackedWidget_4->setObjectName(QStringLiteral("stackedWidget_4"));
+        stackedWidget_4->setGeometry(QRect(60, 70, 1091, 461));
+        page_15 = new QWidget();
+        page_15->setObjectName(QStringLiteral("page_15"));
+        dsbCalCabinTopTempOut = new QDoubleSpinBox(page_15);
+        dsbCalCabinTopTempOut->setObjectName(QStringLiteral("dsbCalCabinTopTempOut"));
+        dsbCalCabinTopTempOut->setEnabled(false);
+        dsbCalCabinTopTempOut->setGeometry(QRect(670, 120, 112, 48));
+        dsbCalCabinTopTempOut->setReadOnly(true);
+        dsbCalCabinTopTempOut->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        dsbCalCabinTopTempOut->setDecimals(2);
+        dsbCalCabinTopTempOut->setMinimum(-50);
+        dsbCalCabinTopTempOut->setMaximum(250);
+        dsbCalCabinTopTempOut->setSingleStep(0.1);
+        dsbCalCabinBottomTempOut = new QDoubleSpinBox(page_15);
+        dsbCalCabinBottomTempOut->setObjectName(QStringLiteral("dsbCalCabinBottomTempOut"));
+        dsbCalCabinBottomTempOut->setEnabled(false);
+        dsbCalCabinBottomTempOut->setGeometry(QRect(670, 180, 112, 48));
+        dsbCalCabinBottomTempOut->setReadOnly(true);
+        dsbCalCabinBottomTempOut->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        dsbCalCabinBottomTempOut->setDecimals(2);
+        dsbCalCabinBottomTempOut->setMinimum(-50);
+        dsbCalCabinBottomTempOut->setMaximum(250);
+        dsbCalCabinBottomTempOut->setSingleStep(0.1);
+        dsbCalPipePressure1Out = new QDoubleSpinBox(page_15);
+        dsbCalPipePressure1Out->setObjectName(QStringLiteral("dsbCalPipePressure1Out"));
+        dsbCalPipePressure1Out->setEnabled(false);
+        dsbCalPipePressure1Out->setGeometry(QRect(670, 240, 111, 48));
+        dsbCalPipePressure1Out->setReadOnly(true);
+        dsbCalPipePressure1Out->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        dsbCalPipePressure1Out->setDecimals(2);
+        dsbCalPipePressure1Out->setMinimum(-40);
+        dsbCalPipePressure1Out->setMaximum(65535);
+        dsbCalPipePressure1Out->setSingleStep(0.1);
+        label_107 = new QLabel(page_15);
+        label_107->setObjectName(QStringLiteral("label_107"));
+        label_107->setGeometry(QRect(670, 61, 74, 31));
+        label_107->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        leCalCabinTopTempCoeff = new QLineEdit(page_15);
+        leCalCabinTopTempCoeff->setObjectName(QStringLiteral("leCalCabinTopTempCoeff"));
+        leCalCabinTopTempCoeff->setGeometry(QRect(520, 120, 135, 50));
+        sizePolicy1.setHeightForWidth(leCalCabinTopTempCoeff->sizePolicy().hasHeightForWidth());
+        leCalCabinTopTempCoeff->setSizePolicy(sizePolicy1);
+        leCalCabinTopTempCoeff->setMinimumSize(QSize(100, 50));
+        leCalCabinTopTempCoeff->setMaximumSize(QSize(135, 16777215));
+        leCalCabinBottomTempCoeff = new QLineEdit(page_15);
+        leCalCabinBottomTempCoeff->setObjectName(QStringLiteral("leCalCabinBottomTempCoeff"));
+        leCalCabinBottomTempCoeff->setGeometry(QRect(520, 180, 135, 50));
+        sizePolicy1.setHeightForWidth(leCalCabinBottomTempCoeff->sizePolicy().hasHeightForWidth());
+        leCalCabinBottomTempCoeff->setSizePolicy(sizePolicy1);
+        leCalCabinBottomTempCoeff->setMinimumSize(QSize(100, 50));
+        leCalCabinBottomTempCoeff->setMaximumSize(QSize(135, 16777215));
+        leCalPipePressure1Coeff = new QLineEdit(page_15);
+        leCalPipePressure1Coeff->setObjectName(QStringLiteral("leCalPipePressure1Coeff"));
+        leCalPipePressure1Coeff->setGeometry(QRect(520, 240, 135, 50));
+        sizePolicy1.setHeightForWidth(leCalPipePressure1Coeff->sizePolicy().hasHeightForWidth());
+        leCalPipePressure1Coeff->setSizePolicy(sizePolicy1);
+        leCalPipePressure1Coeff->setMinimumSize(QSize(100, 50));
+        leCalPipePressure1Coeff->setMaximumSize(QSize(135, 16777215));
+        label_106 = new QLabel(page_15);
+        label_106->setObjectName(QStringLiteral("label_106"));
+        label_106->setGeometry(QRect(520, 61, 89, 31));
+        label_106->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        label_105 = new QLabel(page_15);
+        label_105->setObjectName(QStringLiteral("label_105"));
+        label_105->setGeometry(QRect(370, 61, 54, 31));
+        label_105->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        leCalCabinTopTempErr = new QLineEdit(page_15);
+        leCalCabinTopTempErr->setObjectName(QStringLiteral("leCalCabinTopTempErr"));
+        leCalCabinTopTempErr->setGeometry(QRect(370, 120, 135, 50));
+        sizePolicy1.setHeightForWidth(leCalCabinTopTempErr->sizePolicy().hasHeightForWidth());
+        leCalCabinTopTempErr->setSizePolicy(sizePolicy1);
+        leCalCabinTopTempErr->setMinimumSize(QSize(100, 50));
+        leCalCabinTopTempErr->setMaximumSize(QSize(135, 16777215));
+        leCalPipePressure1Err = new QLineEdit(page_15);
+        leCalPipePressure1Err->setObjectName(QStringLiteral("leCalPipePressure1Err"));
+        leCalPipePressure1Err->setGeometry(QRect(370, 240, 135, 50));
+        sizePolicy1.setHeightForWidth(leCalPipePressure1Err->sizePolicy().hasHeightForWidth());
+        leCalPipePressure1Err->setSizePolicy(sizePolicy1);
+        leCalPipePressure1Err->setMinimumSize(QSize(100, 50));
+        leCalPipePressure1Err->setMaximumSize(QSize(135, 16777215));
+        leCalCabinBottomTempErr = new QLineEdit(page_15);
+        leCalCabinBottomTempErr->setObjectName(QStringLiteral("leCalCabinBottomTempErr"));
+        leCalCabinBottomTempErr->setGeometry(QRect(370, 183, 135, 50));
+        sizePolicy1.setHeightForWidth(leCalCabinBottomTempErr->sizePolicy().hasHeightForWidth());
+        leCalCabinBottomTempErr->setSizePolicy(sizePolicy1);
+        leCalCabinBottomTempErr->setMinimumSize(QSize(100, 50));
+        leCalCabinBottomTempErr->setMaximumSize(QSize(135, 16777215));
+        label_104 = new QLabel(page_15);
+        label_104->setObjectName(QStringLiteral("label_104"));
+        label_104->setGeometry(QRect(220, 61, 72, 31));
+        label_104->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        dsbCalCabinTopTempInput = new QDoubleSpinBox(page_15);
+        dsbCalCabinTopTempInput->setObjectName(QStringLiteral("dsbCalCabinTopTempInput"));
+        dsbCalCabinTopTempInput->setEnabled(false);
+        dsbCalCabinTopTempInput->setGeometry(QRect(220, 120, 127, 48));
+        dsbCalCabinTopTempInput->setReadOnly(true);
+        dsbCalCabinTopTempInput->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        dsbCalCabinTopTempInput->setDecimals(1);
+        dsbCalCabinTopTempInput->setMinimum(-40);
+        dsbCalCabinTopTempInput->setMaximum(65532);
+        dsbCalCabinTopTempInput->setSingleStep(0.1);
+        dsbCalPipePressure1Input = new QDoubleSpinBox(page_15);
+        dsbCalPipePressure1Input->setObjectName(QStringLiteral("dsbCalPipePressure1Input"));
+        dsbCalPipePressure1Input->setEnabled(false);
+        dsbCalPipePressure1Input->setGeometry(QRect(220, 240, 127, 48));
+        sizePolicy1.setHeightForWidth(dsbCalPipePressure1Input->sizePolicy().hasHeightForWidth());
+        dsbCalPipePressure1Input->setSizePolicy(sizePolicy1);
+        dsbCalPipePressure1Input->setMaximumSize(QSize(233, 87));
+        dsbCalPipePressure1Input->setReadOnly(true);
+        dsbCalPipePressure1Input->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        dsbCalPipePressure1Input->setDecimals(1);
+        dsbCalPipePressure1Input->setMinimum(-40);
+        dsbCalPipePressure1Input->setMaximum(65532);
+        dsbCalPipePressure1Input->setSingleStep(0.1);
+        dsbCalCabinBottomInput = new QDoubleSpinBox(page_15);
+        dsbCalCabinBottomInput->setObjectName(QStringLiteral("dsbCalCabinBottomInput"));
+        dsbCalCabinBottomInput->setEnabled(false);
+        dsbCalCabinBottomInput->setGeometry(QRect(220, 184, 127, 48));
+        dsbCalCabinBottomInput->setReadOnly(true);
+        dsbCalCabinBottomInput->setButtonSymbols(QAbstractSpinBox::NoButtons);
+        dsbCalCabinBottomInput->setDecimals(1);
+        dsbCalCabinBottomInput->setMinimum(-40);
+        dsbCalCabinBottomInput->setMaximum(65532);
+        dsbCalCabinBottomInput->setSingleStep(0.1);
+        label_103 = new QLabel(page_15);
+        label_103->setObjectName(QStringLiteral("label_103"));
+        label_103->setGeometry(QRect(10, 60, 144, 31));
+        label_103->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        label_108 = new QLabel(page_15);
+        label_108->setObjectName(QStringLiteral("label_108"));
+        label_108->setGeometry(QRect(10, 130, 191, 21));
+        label_108->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        label_109 = new QLabel(page_15);
+        label_109->setObjectName(QStringLiteral("label_109"));
+        label_109->setGeometry(QRect(10, 200, 171, 21));
+        label_109->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        label_71 = new QLabel(page_15);
+        label_71->setObjectName(QStringLiteral("label_71"));
+        label_71->setGeometry(QRect(10, 260, 171, 21));
+        bSaveCalibrationValues = new QPushButton(page_15);
         bSaveCalibrationValues->setObjectName(QStringLiteral("bSaveCalibrationValues"));
         bSaveCalibrationValues->setEnabled(true);
-        bSaveCalibrationValues->setGeometry(QRect(50, 10, 291, 41));
+        bSaveCalibrationValues->setGeometry(QRect(490, 360, 291, 41));
         bSaveCalibrationValues->setStyleSheet(QLatin1String("/*QPushButton {\n"
 "color: #fff;\n"
 "font-family: \"Gill Sans MT\";\n"
@@ -7467,266 +7314,181 @@ public:
 "radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
 "}"));
         bSaveCalibrationValues->setCheckable(true);
-        dsbCalTankCleanInput = new QDoubleSpinBox(tab_calibration);
-        dsbCalTankCleanInput->setObjectName(QStringLiteral("dsbCalTankCleanInput"));
-        dsbCalTankCleanInput->setEnabled(false);
-        dsbCalTankCleanInput->setGeometry(QRect(80, 556, 21, 48));
-        dsbCalTankCleanInput->setReadOnly(true);
-        dsbCalTankCleanInput->setButtonSymbols(QAbstractSpinBox::NoButtons);
-        dsbCalTankCleanInput->setDecimals(1);
-        dsbCalTankCleanInput->setMinimum(-40);
-        dsbCalTankCleanInput->setMaximum(65532);
-        dsbCalTankCleanInput->setSingleStep(0.1);
-        leCalCleanTankLevelErr = new QLineEdit(tab_calibration);
-        leCalCleanTankLevelErr->setObjectName(QStringLiteral("leCalCleanTankLevelErr"));
-        leCalCleanTankLevelErr->setGeometry(QRect(110, 546, 100, 50));
-        sizePolicy.setHeightForWidth(leCalCleanTankLevelErr->sizePolicy().hasHeightForWidth());
-        leCalCleanTankLevelErr->setSizePolicy(sizePolicy);
-        leCalCleanTankLevelErr->setMinimumSize(QSize(100, 50));
-        leCalCleanTankLevelErr->setMaximumSize(QSize(135, 16777215));
-        leCalCleanTankCoeff = new QLineEdit(tab_calibration);
-        leCalCleanTankCoeff->setObjectName(QStringLiteral("leCalCleanTankCoeff"));
-        leCalCleanTankCoeff->setGeometry(QRect(217, 545, 100, 50));
-        sizePolicy.setHeightForWidth(leCalCleanTankCoeff->sizePolicy().hasHeightForWidth());
-        leCalCleanTankCoeff->setSizePolicy(sizePolicy);
-        leCalCleanTankCoeff->setMinimumSize(QSize(100, 50));
-        leCalCleanTankCoeff->setMaximumSize(QSize(135, 16777215));
-        dsbCalTankCleanOut = new QDoubleSpinBox(tab_calibration);
-        dsbCalTankCleanOut->setObjectName(QStringLiteral("dsbCalTankCleanOut"));
-        dsbCalTankCleanOut->setEnabled(false);
-        dsbCalTankCleanOut->setGeometry(QRect(320, 540, 16, 48));
-        dsbCalTankCleanOut->setReadOnly(true);
-        dsbCalTankCleanOut->setButtonSymbols(QAbstractSpinBox::NoButtons);
-        dsbCalTankCleanOut->setDecimals(2);
-        dsbCalTankCleanOut->setMinimum(-40);
-        dsbCalTankCleanOut->setMaximum(65535);
-        dsbCalTankCleanOut->setSingleStep(0.1);
-        label_72 = new QLabel(tab_calibration);
-        label_72->setObjectName(QStringLiteral("label_72"));
-        label_72->setGeometry(QRect(10, 600, 41, 42));
-        leCalDirtyTankCoeff = new QLineEdit(tab_calibration);
-        leCalDirtyTankCoeff->setObjectName(QStringLiteral("leCalDirtyTankCoeff"));
-        leCalDirtyTankCoeff->setGeometry(QRect(217, 602, 100, 50));
-        sizePolicy.setHeightForWidth(leCalDirtyTankCoeff->sizePolicy().hasHeightForWidth());
-        leCalDirtyTankCoeff->setSizePolicy(sizePolicy);
-        leCalDirtyTankCoeff->setMinimumSize(QSize(100, 50));
-        leCalDirtyTankCoeff->setMaximumSize(QSize(135, 16777215));
-        dsbCalTankDirtyOut = new QDoubleSpinBox(tab_calibration);
-        dsbCalTankDirtyOut->setObjectName(QStringLiteral("dsbCalTankDirtyOut"));
-        dsbCalTankDirtyOut->setEnabled(false);
-        dsbCalTankDirtyOut->setGeometry(QRect(320, 597, 16, 48));
-        dsbCalTankDirtyOut->setReadOnly(true);
-        dsbCalTankDirtyOut->setButtonSymbols(QAbstractSpinBox::NoButtons);
-        dsbCalTankDirtyOut->setDecimals(2);
-        dsbCalTankDirtyOut->setMinimum(-40);
-        dsbCalTankDirtyOut->setMaximum(65535);
-        dsbCalTankDirtyOut->setSingleStep(0.1);
-        dsbCalTankDirtyInput = new QDoubleSpinBox(tab_calibration);
-        dsbCalTankDirtyInput->setObjectName(QStringLiteral("dsbCalTankDirtyInput"));
-        dsbCalTankDirtyInput->setEnabled(false);
-        dsbCalTankDirtyInput->setGeometry(QRect(80, 613, 16, 48));
-        dsbCalTankDirtyInput->setReadOnly(true);
-        dsbCalTankDirtyInput->setButtonSymbols(QAbstractSpinBox::NoButtons);
-        dsbCalTankDirtyInput->setDecimals(1);
-        dsbCalTankDirtyInput->setMinimum(-40);
-        dsbCalTankDirtyInput->setMaximum(65532);
-        dsbCalTankDirtyInput->setSingleStep(0.1);
-        leCalDirtyTankErr = new QLineEdit(tab_calibration);
-        leCalDirtyTankErr->setObjectName(QStringLiteral("leCalDirtyTankErr"));
-        leCalDirtyTankErr->setGeometry(QRect(110, 603, 100, 50));
-        sizePolicy.setHeightForWidth(leCalDirtyTankErr->sizePolicy().hasHeightForWidth());
-        leCalDirtyTankErr->setSizePolicy(sizePolicy);
-        leCalDirtyTankErr->setMinimumSize(QSize(100, 50));
-        leCalDirtyTankErr->setMaximumSize(QSize(135, 16777215));
-        label_75 = new QLabel(tab_calibration);
-        label_75->setObjectName(QStringLiteral("label_75"));
-        label_75->setGeometry(QRect(10, 640, 51, 42));
-        leCalExpansionTankCoeff = new QLineEdit(tab_calibration);
-        leCalExpansionTankCoeff->setObjectName(QStringLiteral("leCalExpansionTankCoeff"));
-        leCalExpansionTankCoeff->setGeometry(QRect(217, 659, 100, 50));
-        sizePolicy.setHeightForWidth(leCalExpansionTankCoeff->sizePolicy().hasHeightForWidth());
-        leCalExpansionTankCoeff->setSizePolicy(sizePolicy);
-        leCalExpansionTankCoeff->setMinimumSize(QSize(100, 50));
-        leCalExpansionTankCoeff->setMaximumSize(QSize(135, 16777215));
-        dsbCalTankPressureOut = new QDoubleSpinBox(tab_calibration);
-        dsbCalTankPressureOut->setObjectName(QStringLiteral("dsbCalTankPressureOut"));
-        dsbCalTankPressureOut->setEnabled(false);
-        dsbCalTankPressureOut->setGeometry(QRect(320, 654, 16, 48));
-        dsbCalTankPressureOut->setReadOnly(true);
-        dsbCalTankPressureOut->setButtonSymbols(QAbstractSpinBox::NoButtons);
-        dsbCalTankPressureOut->setDecimals(2);
-        dsbCalTankPressureOut->setMinimum(-40);
-        dsbCalTankPressureOut->setMaximum(65535);
-        dsbCalTankPressureOut->setSingleStep(0.1);
-        dsbCalTankPressureInput = new QDoubleSpinBox(tab_calibration);
-        dsbCalTankPressureInput->setObjectName(QStringLiteral("dsbCalTankPressureInput"));
-        dsbCalTankPressureInput->setEnabled(false);
-        dsbCalTankPressureInput->setGeometry(QRect(80, 670, 16, 48));
-        dsbCalTankPressureInput->setReadOnly(true);
-        dsbCalTankPressureInput->setButtonSymbols(QAbstractSpinBox::NoButtons);
-        dsbCalTankPressureInput->setDecimals(1);
-        dsbCalTankPressureInput->setMinimum(-40);
-        dsbCalTankPressureInput->setMaximum(65532);
-        dsbCalTankPressureInput->setSingleStep(0.1);
-        leCalExpansionTankErr = new QLineEdit(tab_calibration);
-        leCalExpansionTankErr->setObjectName(QStringLiteral("leCalExpansionTankErr"));
-        leCalExpansionTankErr->setGeometry(QRect(110, 660, 100, 50));
-        sizePolicy.setHeightForWidth(leCalExpansionTankErr->sizePolicy().hasHeightForWidth());
-        leCalExpansionTankErr->setSizePolicy(sizePolicy);
-        leCalExpansionTankErr->setMinimumSize(QSize(100, 50));
-        leCalExpansionTankErr->setMaximumSize(QSize(135, 16777215));
-        label_76 = new QLabel(tab_calibration);
-        label_76->setObjectName(QStringLiteral("label_76"));
-        label_76->setGeometry(QRect(10, 680, 41, 42));
-        label_103 = new QLabel(tab_calibration);
-        label_103->setObjectName(QStringLiteral("label_103"));
-        label_103->setGeometry(QRect(143, 122, 144, 42));
-        label_103->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        label_104 = new QLabel(tab_calibration);
-        label_104->setObjectName(QStringLiteral("label_104"));
-        label_104->setGeometry(QRect(368, 122, 72, 42));
-        label_104->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        label_105 = new QLabel(tab_calibration);
-        label_105->setObjectName(QStringLiteral("label_105"));
-        label_105->setGeometry(QRect(502, 122, 54, 42));
-        label_105->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        leCalCabinTopTempErr = new QLineEdit(tab_calibration);
-        leCalCabinTopTempErr->setObjectName(QStringLiteral("leCalCabinTopTempErr"));
-        leCalCabinTopTempErr->setGeometry(QRect(502, 159, 135, 50));
-        sizePolicy.setHeightForWidth(leCalCabinTopTempErr->sizePolicy().hasHeightForWidth());
-        leCalCabinTopTempErr->setSizePolicy(sizePolicy);
-        leCalCabinTopTempErr->setMinimumSize(QSize(100, 50));
-        leCalCabinTopTempErr->setMaximumSize(QSize(135, 16777215));
-        label_106 = new QLabel(tab_calibration);
-        label_106->setObjectName(QStringLiteral("label_106"));
-        label_106->setGeometry(QRect(644, 122, 89, 42));
-        label_106->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        label_108 = new QLabel(tab_calibration);
-        label_108->setObjectName(QStringLiteral("label_108"));
-        label_108->setGeometry(QRect(143, 171, 218, 42));
-        label_108->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        leCalCabinTopTempCoeff = new QLineEdit(tab_calibration);
-        leCalCabinTopTempCoeff->setObjectName(QStringLiteral("leCalCabinTopTempCoeff"));
-        leCalCabinTopTempCoeff->setGeometry(QRect(644, 159, 135, 50));
-        sizePolicy.setHeightForWidth(leCalCabinTopTempCoeff->sizePolicy().hasHeightForWidth());
-        leCalCabinTopTempCoeff->setSizePolicy(sizePolicy);
-        leCalCabinTopTempCoeff->setMinimumSize(QSize(100, 50));
-        leCalCabinTopTempCoeff->setMaximumSize(QSize(135, 16777215));
-        leCalCabinBottomTempCoeff = new QLineEdit(tab_calibration);
-        leCalCabinBottomTempCoeff->setObjectName(QStringLiteral("leCalCabinBottomTempCoeff"));
-        leCalCabinBottomTempCoeff->setGeometry(QRect(644, 225, 135, 50));
-        sizePolicy.setHeightForWidth(leCalCabinBottomTempCoeff->sizePolicy().hasHeightForWidth());
-        leCalCabinBottomTempCoeff->setSizePolicy(sizePolicy);
-        leCalCabinBottomTempCoeff->setMinimumSize(QSize(100, 50));
-        leCalCabinBottomTempCoeff->setMaximumSize(QSize(135, 16777215));
-        leCalCabinBottomTempErr = new QLineEdit(tab_calibration);
-        leCalCabinBottomTempErr->setObjectName(QStringLiteral("leCalCabinBottomTempErr"));
-        leCalCabinBottomTempErr->setGeometry(QRect(502, 225, 135, 50));
-        sizePolicy.setHeightForWidth(leCalCabinBottomTempErr->sizePolicy().hasHeightForWidth());
-        leCalCabinBottomTempErr->setSizePolicy(sizePolicy);
-        leCalCabinBottomTempErr->setMinimumSize(QSize(100, 50));
-        leCalCabinBottomTempErr->setMaximumSize(QSize(135, 16777215));
-        leCalPipePressure1Coeff = new QLineEdit(tab_calibration);
-        leCalPipePressure1Coeff->setObjectName(QStringLiteral("leCalPipePressure1Coeff"));
-        leCalPipePressure1Coeff->setGeometry(QRect(644, 282, 135, 50));
-        sizePolicy.setHeightForWidth(leCalPipePressure1Coeff->sizePolicy().hasHeightForWidth());
-        leCalPipePressure1Coeff->setSizePolicy(sizePolicy);
-        leCalPipePressure1Coeff->setMinimumSize(QSize(100, 50));
-        leCalPipePressure1Coeff->setMaximumSize(QSize(135, 16777215));
-        leCalPipePressure1Err = new QLineEdit(tab_calibration);
-        leCalPipePressure1Err->setObjectName(QStringLiteral("leCalPipePressure1Err"));
-        leCalPipePressure1Err->setGeometry(QRect(502, 282, 135, 50));
-        sizePolicy.setHeightForWidth(leCalPipePressure1Err->sizePolicy().hasHeightForWidth());
-        leCalPipePressure1Err->setSizePolicy(sizePolicy);
-        leCalPipePressure1Err->setMinimumSize(QSize(100, 50));
-        leCalPipePressure1Err->setMaximumSize(QSize(135, 16777215));
-        label_107 = new QLabel(tab_calibration);
-        label_107->setObjectName(QStringLiteral("label_107"));
-        label_107->setGeometry(QRect(786, 122, 74, 42));
-        label_107->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        label_109 = new QLabel(tab_calibration);
-        label_109->setObjectName(QStringLiteral("label_109"));
-        label_109->setGeometry(QRect(143, 220, 210, 42));
-        label_109->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-        dsbCalCabinTopTempInput = new QDoubleSpinBox(tab_calibration);
-        dsbCalCabinTopTempInput->setObjectName(QStringLiteral("dsbCalCabinTopTempInput"));
-        dsbCalCabinTopTempInput->setEnabled(false);
-        dsbCalCabinTopTempInput->setGeometry(QRect(368, 160, 127, 48));
-        dsbCalCabinTopTempInput->setReadOnly(true);
-        dsbCalCabinTopTempInput->setButtonSymbols(QAbstractSpinBox::NoButtons);
-        dsbCalCabinTopTempInput->setDecimals(1);
-        dsbCalCabinTopTempInput->setMinimum(-40);
-        dsbCalCabinTopTempInput->setMaximum(65532);
-        dsbCalCabinTopTempInput->setSingleStep(0.1);
-        dsbCalCabinBottomInput = new QDoubleSpinBox(tab_calibration);
-        dsbCalCabinBottomInput->setObjectName(QStringLiteral("dsbCalCabinBottomInput"));
-        dsbCalCabinBottomInput->setEnabled(false);
-        dsbCalCabinBottomInput->setGeometry(QRect(368, 226, 127, 48));
-        dsbCalCabinBottomInput->setReadOnly(true);
-        dsbCalCabinBottomInput->setButtonSymbols(QAbstractSpinBox::NoButtons);
-        dsbCalCabinBottomInput->setDecimals(1);
-        dsbCalCabinBottomInput->setMinimum(-40);
-        dsbCalCabinBottomInput->setMaximum(65532);
-        dsbCalCabinBottomInput->setSingleStep(0.1);
-        dsbCalCabinTopTempOut = new QDoubleSpinBox(tab_calibration);
-        dsbCalCabinTopTempOut->setObjectName(QStringLiteral("dsbCalCabinTopTempOut"));
-        dsbCalCabinTopTempOut->setEnabled(false);
-        dsbCalCabinTopTempOut->setGeometry(QRect(786, 160, 112, 48));
-        dsbCalCabinTopTempOut->setReadOnly(true);
-        dsbCalCabinTopTempOut->setButtonSymbols(QAbstractSpinBox::NoButtons);
-        dsbCalCabinTopTempOut->setDecimals(2);
-        dsbCalCabinTopTempOut->setMinimum(-50);
-        dsbCalCabinTopTempOut->setMaximum(250);
-        dsbCalCabinTopTempOut->setSingleStep(0.1);
-        dsbCalCabinBottomTempOut = new QDoubleSpinBox(tab_calibration);
-        dsbCalCabinBottomTempOut->setObjectName(QStringLiteral("dsbCalCabinBottomTempOut"));
-        dsbCalCabinBottomTempOut->setEnabled(false);
-        dsbCalCabinBottomTempOut->setGeometry(QRect(786, 226, 112, 48));
-        dsbCalCabinBottomTempOut->setReadOnly(true);
-        dsbCalCabinBottomTempOut->setButtonSymbols(QAbstractSpinBox::NoButtons);
-        dsbCalCabinBottomTempOut->setDecimals(2);
-        dsbCalCabinBottomTempOut->setMinimum(-50);
-        dsbCalCabinBottomTempOut->setMaximum(250);
-        dsbCalCabinBottomTempOut->setSingleStep(0.1);
-        label_71 = new QLabel(tab_calibration);
-        label_71->setObjectName(QStringLiteral("label_71"));
-        label_71->setGeometry(QRect(143, 274, 85, 42));
-        dsbCalPipePressure1Input = new QDoubleSpinBox(tab_calibration);
-        dsbCalPipePressure1Input->setObjectName(QStringLiteral("dsbCalPipePressure1Input"));
-        dsbCalPipePressure1Input->setEnabled(false);
-        dsbCalPipePressure1Input->setGeometry(QRect(368, 282, 127, 48));
-        sizePolicy.setHeightForWidth(dsbCalPipePressure1Input->sizePolicy().hasHeightForWidth());
-        dsbCalPipePressure1Input->setSizePolicy(sizePolicy);
-        dsbCalPipePressure1Input->setMaximumSize(QSize(233, 87));
-        dsbCalPipePressure1Input->setReadOnly(true);
-        dsbCalPipePressure1Input->setButtonSymbols(QAbstractSpinBox::NoButtons);
-        dsbCalPipePressure1Input->setDecimals(1);
-        dsbCalPipePressure1Input->setMinimum(-40);
-        dsbCalPipePressure1Input->setMaximum(65532);
-        dsbCalPipePressure1Input->setSingleStep(0.1);
-        dsbCalPipePressure1Out = new QDoubleSpinBox(tab_calibration);
-        dsbCalPipePressure1Out->setObjectName(QStringLiteral("dsbCalPipePressure1Out"));
-        dsbCalPipePressure1Out->setEnabled(false);
-        dsbCalPipePressure1Out->setGeometry(QRect(786, 283, 111, 48));
-        dsbCalPipePressure1Out->setReadOnly(true);
-        dsbCalPipePressure1Out->setButtonSymbols(QAbstractSpinBox::NoButtons);
-        dsbCalPipePressure1Out->setDecimals(2);
-        dsbCalPipePressure1Out->setMinimum(-40);
-        dsbCalPipePressure1Out->setMaximum(65535);
-        dsbCalPipePressure1Out->setSingleStep(0.1);
-        tabWidget->addTab(tab_calibration, QString());
-
-        gridLayout->addWidget(tabWidget, 0, 0, 1, 1);
-
+        stackedWidget_4->addWidget(page_15);
+        page_16 = new QWidget();
+        page_16->setObjectName(QStringLiteral("page_16"));
+        stackedWidget_4->addWidget(page_16);
+        tabWidget->addTab(tab_settings, QString());
+        bLightsMain = new QPushButton(centralWidget);
+        bLightsMain->setObjectName(QStringLiteral("bLightsMain"));
+        bLightsMain->setGeometry(QRect(10, 450, 94, 80));
+        sizePolicy2.setHeightForWidth(bLightsMain->sizePolicy().hasHeightForWidth());
+        bLightsMain->setSizePolicy(sizePolicy2);
+        bLightsMain->setMinimumSize(QSize(74, 80));
+        bLightsMain->setFont(font2);
+        bLightsMain->setStyleSheet(QLatin1String("QPushButton {\n"
+"color: rgb(255, 255, 255);\n"
+"font-family: \"Gill Sans MT\";\n"
+"font-size: 25px;\n"
+"border: 2px solid rgb(255, 85, 0);\n"
+"/*border: 2px solid rgb(0, 115, 255);*/\n"
+"border-radius: 5px;\n"
+"padding: 5px;\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(0, 0, 0), stop: 1 rgb(30, 30, 30));\n"
+"min-width: 60px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"background: qradialgradient(cx: 0.3, cy: -0.4,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(80, 80, 80), stop: 1 rgb(50, 50, 50));\n"
+"}\n"
+"QPushButton:pressed {\n"
+"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
+"fx: 0.4, fy: -0.1,\n"
+"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
+"}\n"
+"QPushButton:disabled {\n"
+"color: #888;\n"
+"border: 2px solid rgb(189, 189, 189);\n"
+"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
+"fx: 0.4, fy: -0.1,\n"
+"radius: 1.35, stop: 0 rgb(104, 104, 104), stop: 1 rgb(104, 104,104));\n"
+"}\n"
+""));
+        QIcon icon8;
+        icon8.addFile(QStringLiteral("img/light-bulb-OFF-128x128tr.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon8.addFile(QStringLiteral("img/light-bulb-ON-128x128tr.png"), QSize(), QIcon::Active, QIcon::On);
+        bLightsMain->setIcon(icon8);
+        bLightsMain->setIconSize(QSize(60, 60));
+        bLightsMain->setCheckable(true);
+        bMainDoorInfo = new QPushButton(centralWidget);
+        bMainDoorInfo->setObjectName(QStringLiteral("bMainDoorInfo"));
+        bMainDoorInfo->setEnabled(true);
+        bMainDoorInfo->setGeometry(QRect(10, 540, 94, 80));
+        bMainDoorInfo->setMinimumSize(QSize(80, 80));
+        bMainDoorInfo->setFont(font2);
+        bMainDoorInfo->setStyleSheet(QLatin1String("QPushButton {\n"
+"color: rgb(255, 255, 255);\n"
+"font-family: \"Gill Sans MT\";\n"
+"font-size: 25px;\n"
+"border: 2px solid rgb(255, 85, 0);\n"
+"/*border: 2px solid rgb(0, 115, 255);*/\n"
+"border-radius: 5px;\n"
+"padding: 5px;\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(0, 210, 0), stop: 1 rgb(0, 100, 0));\n"
+"min-width: 80px;\n"
+"}\n"
+"/*\n"
+"QPushButton:hover {\n"
+"background: qradialgradient(cx: 0.3, cy: -0.4,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(220, 0, 0), stop: 1 rgb(150, 0, 0));\n"
+"}\n"
+"QPushButton:pressed {\n"
+"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
+"fx: 0.4, fy: -0.1,\n"
+"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
+"}\n"
+"*/\n"
+"QPushButton:disabled {\n"
+"color: rgb(255, 255, 255);\n"
+"border: 2px solid rgb(255, 85, 0);\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(210, 0, 0), stop: 1 rgb(100, 0, 0));\n"
+"}"));
+        bMainDoorInfo->setCheckable(true);
+        bScreenshot = new QPushButton(centralWidget);
+        bScreenshot->setObjectName(QStringLiteral("bScreenshot"));
+        bScreenshot->setGeometry(QRect(10, 360, 94, 80));
+        bScreenshot->setMinimumSize(QSize(74, 80));
+        bScreenshot->setStyleSheet(QLatin1String("QPushButton {\n"
+"color: rgb(255, 255, 255);\n"
+"font-family: \"Gill Sans MT\";\n"
+"font-size: 25px;\n"
+"border: 2px solid rgb(255, 85, 0);\n"
+"/*border: 2px solid rgb(0, 115, 255);*/\n"
+"border-radius: 5px;\n"
+"padding: 5px;\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(0, 0, 0), stop: 1 rgb(30, 30, 30));\n"
+"min-width: 60px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"background: qradialgradient(cx: 0.3, cy: -0.4,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(80, 80, 80), stop: 1 rgb(50, 50, 50));\n"
+"}\n"
+"QPushButton:pressed {\n"
+"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
+"fx: 0.4, fy: -0.1,\n"
+"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
+"}\n"
+"QPushButton:disabled {\n"
+"color: #888;\n"
+"border: 2px solid rgb(189, 189, 189);\n"
+"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
+"fx: 0.4, fy: -0.1,\n"
+"radius: 1.35, stop: 0 rgb(104, 104, 104), stop: 1 rgb(104, 104,104));\n"
+"}\n"
+""));
+        QIcon icon9;
+        icon9.addFile(QStringLiteral(":/images/img/camera-64.png"), QSize(), QIcon::Normal, QIcon::Off);
+        bScreenshot->setIcon(icon9);
+        bScreenshot->setIconSize(QSize(64, 64));
+        bMinimize_3 = new QPushButton(centralWidget);
+        bMinimize_3->setObjectName(QStringLiteral("bMinimize_3"));
+        bMinimize_3->setEnabled(true);
+        bMinimize_3->setGeometry(QRect(10, 630, 94, 80));
+        sizePolicy2.setHeightForWidth(bMinimize_3->sizePolicy().hasHeightForWidth());
+        bMinimize_3->setSizePolicy(sizePolicy2);
+        bMinimize_3->setMinimumSize(QSize(80, 80));
+        bMinimize_3->setMaximumSize(QSize(95, 95));
+        bMinimize_3->setStyleSheet(QLatin1String("QPushButton {\n"
+"color: rgb(255, 255, 255);\n"
+"font-family: \"Gill Sans MT\";\n"
+"font-size: 25px;\n"
+"border: 2px solid rgb(255, 85, 0);\n"
+"/*border: 2px solid rgb(0, 115, 255);*/\n"
+"border-radius: 5px;\n"
+"padding: 5px;\n"
+"background: qradialgradient(cx: 0.3, cy: -0.6,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(0, 0, 0), stop: 1 rgb(30, 30, 30));\n"
+"min-width: 60px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"background: qradialgradient(cx: 0.3, cy: -0.4,\n"
+"fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 rgb(80, 80, 80), stop: 1 rgb(50, 50, 50));\n"
+"}\n"
+"QPushButton:pressed {\n"
+"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
+"fx: 0.4, fy: -0.1,\n"
+"radius: 1.35, stop: 0 #65BAAB, stop: 1 #ddd);\n"
+"}\n"
+"QPushButton:disabled {\n"
+"color: #888;\n"
+"border: 2px solid rgb(189, 189, 189);\n"
+"background: qradialgradient(cx: 0.4, cy: -0.1,\n"
+"fx: 0.4, fy: -0.1,\n"
+"radius: 1.35, stop: 0 rgb(104, 104, 104), stop: 1 rgb(104, 104,104));\n"
+"}\n"
+""));
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(0);
         mainPage->setCurrentIndex(0);
         cbFixMode->setCurrentIndex(0);
         detailsPages->setCurrentIndex(0);
-        detailsBottomPages->setCurrentIndex(4);
+        detailsBottomPages->setCurrentIndex(0);
         sW_0->setCurrentIndex(1);
         stackedWidget_2->setCurrentIndex(0);
         cbSelectGraph->setCurrentIndex(0);
@@ -7735,6 +7497,7 @@ public:
         cbChooseProfileTypeNew->setCurrentIndex(0);
         stackedWidget_3->setCurrentIndex(2);
         tWidget->setCurrentIndex(4);
+        stackedWidget_4->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -7749,8 +7512,6 @@ public:
         rectRecipe->setText(QString());
         rectFix->setText(QString());
         rect1500h->setText(QString());
-        bClearLogTable_2->setText(QApplication::translate("MainWindow", "_", Q_NULLPTR));
-        bLightsMain->setText(QString());
         laDate->setText(QApplication::translate("MainWindow", "XX/XX/XX", Q_NULLPTR));
         laTime->setText(QApplication::translate("MainWindow", "XX:XX:XX", Q_NULLPTR));
         cbSelectProfileMain->clear();
@@ -7800,7 +7561,6 @@ public:
         label_52->setText(QApplication::translate("MainWindow", "Set Bas\304\261nc\304\261 (bar)", Q_NULLPTR));
         label_57->setText(QApplication::translate("MainWindow", "Sirk\303\274lasyon S\303\274resi(dk)", Q_NULLPTR));
         bChooseData->setText(QApplication::translate("MainWindow", "Kay\304\261t Se\303\247", Q_NULLPTR));
-        bMainDoorInfo->setText(QApplication::translate("MainWindow", "Kapak ", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_Main), QApplication::translate("MainWindow", "Ana Sayfa", Q_NULLPTR));
         label_26->setText(QApplication::translate("MainWindow", "\304\260\305\237lenen Test Durumu", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem = warningTable->horizontalHeaderItem(0);
@@ -7848,21 +7608,14 @@ public:
         cB_test->setText(QApplication::translate("MainWindow", "Test ", Q_NULLPTR));
         cB_test_hazirlik->setText(QApplication::translate("MainWindow", "Test Haz\304\261rl\304\261k ", Q_NULLPTR));
         cB_nem->setText(QApplication::translate("MainWindow", "Nem Test ", Q_NULLPTR));
-        cB_nem_aliniyor->setText(QApplication::translate("MainWindow", "Nem al\304\261n\304\261yor ", Q_NULLPTR));
         cB_kompresor->setText(QApplication::translate("MainWindow", "Kompres\303\266r Aktif", Q_NULLPTR));
         cB_sogutma->setText(QApplication::translate("MainWindow", "Sogutma Test ", Q_NULLPTR));
         cB_nem_alma->setText(QApplication::translate("MainWindow", "Nem Alma Test ", Q_NULLPTR));
-        cB_nemlendirme->setText(QApplication::translate("MainWindow", "Nemlendirme yap\304\261l\304\261yor", Q_NULLPTR));
-        cB_gaz_toplama->setText(QApplication::translate("MainWindow", "Gaz toplama aktif", Q_NULLPTR));
-        cB_sogutma_yapiliyor->setText(QApplication::translate("MainWindow", "Sogutma yap\304\261l\304\261yor", Q_NULLPTR));
         cB_test_tamamlandi->setText(QApplication::translate("MainWindow", "Test  Tamamland\304\261", Q_NULLPTR));
         cB_nem_cihaz->setText(QApplication::translate("MainWindow", "Nemlendirme Cihaz Aktif", Q_NULLPTR));
-        cB_nem_istnen_degerde->setText(QApplication::translate("MainWindow", "Nem istenen degerde ", Q_NULLPTR));
-        cB_sicalik_set_degerde->setText(QApplication::translate("MainWindow", "S\304\261cakl\304\261k set degerde", Q_NULLPTR));
         cB_rezistans->setText(QApplication::translate("MainWindow", "Rezistanslar Aktif", Q_NULLPTR));
         cB_bos_blok->setText(QString());
         cB_fan->setText(QApplication::translate("MainWindow", "Fanlar Aktif", Q_NULLPTR));
-        cB_isit_aktif->setText(QApplication::translate("MainWindow", "Is\304\261tma yap\304\261l\304\261yor", Q_NULLPTR));
         cB_sicaklik->setText(QApplication::translate("MainWindow", "S\304\261cakl\304\261k Test ", Q_NULLPTR));
         cB_Kondenser->setText(QApplication::translate("MainWindow", "Kondenser Aktif", Q_NULLPTR));
         cB_adim_izle->setText(QApplication::translate("MainWindow", "       .Ad\304\261m uygulan\304\261yor", Q_NULLPTR));
@@ -7979,7 +7732,6 @@ public:
         label_2->setText(QApplication::translate("MainWindow", "TextLabel", Q_NULLPTR));
         laTime_2->setText(QApplication::translate("MainWindow", "XX:XX:XX", Q_NULLPTR));
         laDate_2->setText(QApplication::translate("MainWindow", "XX/XX/XX", Q_NULLPTR));
-        bMinimize_2->setText(QApplication::translate("MainWindow", "_", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_setTemp), QApplication::translate("MainWindow", "Test Takip", Q_NULLPTR));
         cbSelectGraph->clear();
         cbSelectGraph->insertItems(0, QStringList()
@@ -7987,18 +7739,16 @@ public:
          << QApplication::translate("MainWindow", "S\304\261cakl\304\261k Nem", Q_NULLPTR)
         );
         laTestName->setText(QApplication::translate("MainWindow", "Recete Secilmedi  ", Q_NULLPTR));
-        bScreenshot->setText(QApplication::translate("MainWindow", "Screenshot", Q_NULLPTR));
         ZoomInVer->setText(QApplication::translate("MainWindow", "+", Q_NULLPTR));
         ZoomOutVer->setText(QApplication::translate("MainWindow", "-", Q_NULLPTR));
         ZoomInHor->setText(QApplication::translate("MainWindow", "+", Q_NULLPTR));
         ZoomOutHor->setText(QApplication::translate("MainWindow", "-", Q_NULLPTR));
         ZoomCenter->setText(QApplication::translate("MainWindow", "Merkezle", Q_NULLPTR));
-        laTime_3->setText(QApplication::translate("MainWindow", "XX:XX:XX", Q_NULLPTR));
         laDate_3->setText(QApplication::translate("MainWindow", "XX/XX/XX", Q_NULLPTR));
-        bMinimize_3->setText(QApplication::translate("MainWindow", "_", Q_NULLPTR));
         label_14->setText(QApplication::translate("MainWindow", "Bas\304\261nc (bar)", Q_NULLPTR));
         label_80->setText(QApplication::translate("MainWindow", "Nem(%rh)", Q_NULLPTR));
         label_33->setText(QApplication::translate("MainWindow", "S\304\261cakl\304\261k(\302\260C)", Q_NULLPTR));
+        laTime_3->setText(QApplication::translate("MainWindow", "XX:XX:XX", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_Details), QApplication::translate("MainWindow", "Grafik", Q_NULLPTR));
         bStopTestManual->setText(QApplication::translate("MainWindow", "Iptal", Q_NULLPTR));
         bPauseTestManual->setText(QApplication::translate("MainWindow", "Beklet", Q_NULLPTR));
@@ -8230,19 +7980,23 @@ public:
         label_82->setText(QApplication::translate("MainWindow", "Bas\304\261n\303\247", Q_NULLPTR));
         chbHumidityDevice->setText(QApplication::translate("MainWindow", "Nem Cihaz\304\261", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_Maintenance), QApplication::translate("MainWindow", "Bak\304\261m", Q_NULLPTR));
-        bSaveCalibrationValues->setText(QApplication::translate("MainWindow", "Kalibre Et", Q_NULLPTR));
         label_72->setText(QApplication::translate("MainWindow", "Temiz Tank S\304\261v\304\261 Seviye ", Q_NULLPTR));
         label_75->setText(QApplication::translate("MainWindow", "Kirli Tank S\304\261v\304\261 Seviye ", Q_NULLPTR));
         label_76->setText(QApplication::translate("MainWindow", "Bas\304\261n\303\247 Tank S\304\261v\304\261 Seviye ", Q_NULLPTR));
-        label_103->setText(QApplication::translate("MainWindow", "Kalibrasyon", Q_NULLPTR));
-        label_104->setText(QApplication::translate("MainWindow", "Gelen", Q_NULLPTR));
-        label_105->setText(QApplication::translate("MainWindow", "Fark", Q_NULLPTR));
-        label_106->setText(QApplication::translate("MainWindow", "Carpan", Q_NULLPTR));
-        label_108->setText(QApplication::translate("MainWindow", "Kabin S\304\261cakl\304\261k \303\234st", Q_NULLPTR));
         label_107->setText(QApplication::translate("MainWindow", "Sonuc", Q_NULLPTR));
+        label_106->setText(QApplication::translate("MainWindow", "Carpan", Q_NULLPTR));
+        label_105->setText(QApplication::translate("MainWindow", "Fark", Q_NULLPTR));
+        label_104->setText(QApplication::translate("MainWindow", "Gelen", Q_NULLPTR));
+        label_103->setText(QApplication::translate("MainWindow", "Kalibrasyon", Q_NULLPTR));
+        label_108->setText(QApplication::translate("MainWindow", "Kabin S\304\261cakl\304\261k \303\234st", Q_NULLPTR));
         label_109->setText(QApplication::translate("MainWindow", "Kabin S\304\261cakl\304\261k Alt", Q_NULLPTR));
         label_71->setText(QApplication::translate("MainWindow", "Nem", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(tab_calibration), QApplication::translate("MainWindow", "Kalibrasyon", Q_NULLPTR));
+        bSaveCalibrationValues->setText(QApplication::translate("MainWindow", "Kalibre Et", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_settings), QApplication::translate("MainWindow", "Ayarlar", Q_NULLPTR));
+        bLightsMain->setText(QString());
+        bMainDoorInfo->setText(QApplication::translate("MainWindow", "Kapak ", Q_NULLPTR));
+        bScreenshot->setText(QString());
+        bMinimize_3->setText(QApplication::translate("MainWindow", "_", Q_NULLPTR));
     } // retranslateUi
 
 };

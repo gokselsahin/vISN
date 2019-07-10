@@ -93,15 +93,17 @@ quint8 askCounter = 1;
 QString testFolder;
 QString dataFilePath;
 bool startFromRecords = false;
-
+QTranslator translator;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    //connect(ui->bFixMode_2,SIGNAL(clicked()),this,SLOT(changeLanguageToEnglish()));
+    QApplication::instance()->installTranslator(&translator);
     this->setWindowTitle(appName);
+
 
     //    QPixmap bkgnd("png\\background.jpg");
     //    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -262,7 +264,7 @@ void MainWindow::commInfo(bool status)
     else
     {
 
-   /*     ui->tabWidget->setCurrentIndex(1);
+        ui->tabWidget->setCurrentIndex(1);
         ui->detailsPages->setCurrentIndex(0);
         ui->detailsBottomPages->setCurrentIndex(4);
         ui->bResetFault->setVisible(true);
@@ -270,7 +272,7 @@ void MainWindow::commInfo(bool status)
         proc->stop();
         proc->commandMessages.clear();
         proc->profileMessages.clear();
-        */
+
         commStatus = false;
 
     }
@@ -1933,11 +1935,11 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
 
             if (myPLC.temperatureFixed)
             {
-                ui->cB_sicalik_set_degerde->setEnabled(true);
+              //  ui->cB_sicalik_set_degerde->setEnabled(true);
             }
             else
             {
-                ui->cB_sicalik_set_degerde->setEnabled(false);
+             //   ui->cB_sicalik_set_degerde->setEnabled(false);
             }
         }
 
@@ -2398,13 +2400,13 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
         myPLC.nemaliniyor = (data[5] & 0b00010000) >>4 ;
         if (myPLC.nemaliniyor)
         {
-        ui->cB_nem_aliniyor->setEnabled(true);
+        //ui->cB_nem_aliniyor->setEnabled(true);
 
 
         }
         else
         {
-        ui->cB_nem_aliniyor->setEnabled(false);
+        //ui->cB_nem_aliniyor->setEnabled(false);
 
         }
         //nem calınıyor
@@ -2412,13 +2414,13 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
         myPLC.nemistenende = (data[5] & 0b00100000) >>5 ;
         if (myPLC.nemistenende)
         {
-        ui->cB_nem_istnen_degerde->setEnabled(true);
+       // ui->cB_nem_istnen_degerde->setEnabled(true);
 
 
         }
         else
         {
-        ui->cB_nem_istnen_degerde->setEnabled(false);
+       // ui->cB_nem_istnen_degerde->setEnabled(false);
 
         }
         //nem istenen degerde
@@ -2426,18 +2428,18 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
         myPLC.nemlendirmeyapiliyor = (data[5] & 0b01000000) >>6 ;
         if (myPLC.nemlendirmeyapiliyor)
         {
-          ui->cB_nemlendirme->setEnabled(true);
+      //    ui->cB_nemlendirme->setEnabled(true);
         }
         else
         {
-          ui->cB_nemlendirme->setEnabled(false);
+       //   ui->cB_nemlendirme->setEnabled(false);
         }
         //nemlendirme yapılıyor
         //test hazırlık
         myPLC.TestHazirlik = (data[6] & 0b00000001)   ;
         if (myPLC.TestHazirlik)
         {
-            ui->cB_test_hazirlik->setEnabled(true);
+          ui->cB_test_hazirlik->setEnabled(true);
         }
         else
         {
@@ -2474,22 +2476,22 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
         myPLC.sogutmaYapiliyor = (data[6] & 0b00001000) >> 3 ;
         if (myPLC.sogutmaYapiliyor)
         {
-           ui->cB_sogutma_yapiliyor->setEnabled(true);
+           //ui->cB_sogutma_yapiliyor->setEnabled(true);
         }
         else
         {
-            ui->cB_sogutma_yapiliyor->setEnabled(false);
+           // ui->cB_sogutma_yapiliyor->setEnabled(false);
         }
         //sogutma yapılıyor  aktive
         //gaz toplama  aktive
         myPLC.gazToplamaAktive = (data[6] & 0b00010000) >> 4 ;
         if (myPLC.gazToplamaAktive)
         {
-             ui->cB_gaz_toplama->setEnabled(true);
+           //  ui->cB_gaz_toplama->setEnabled(true);
         }
         else
         {
-             ui->cB_gaz_toplama->setEnabled(false);
+          //   ui->cB_gaz_toplama->setEnabled(false);
         }
         //gaz toplama  aktive
         //compresor aktive
@@ -2507,11 +2509,11 @@ void MainWindow::updateInfo(quint8 index, QByteArray data)
         myPLC.isitmaTest = (data[6] & 0b01000000) >> 6    ;
         if (myPLC.isitmaTest)
         {
-            ui->cB_isit_aktif->setEnabled(true);
+            //ui->cB_isit_aktif->setEnabled(true);
         }
         else
         {
-           ui->cB_isit_aktif->setEnabled(false);
+          // ui->cB_isit_aktif->setEnabled(false);
 
         }
         //isitma test
@@ -8621,4 +8623,10 @@ void MainWindow::on_cbFixMode_currentIndexChanged(int index)
           ui->leFixHumidtyValue->setEnabled(false);
       }
 
+}
+
+void MainWindow::changeLanguageToEnglish()
+{
+    translator.load("english.qm");
+    ui->retranslateUi(this);
 }
